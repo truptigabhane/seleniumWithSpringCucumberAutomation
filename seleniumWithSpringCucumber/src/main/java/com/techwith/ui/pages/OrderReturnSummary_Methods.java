@@ -33,8 +33,8 @@ public class OrderReturnSummary_Methods {
     }
 
 
-    public void SelectRefundOption(String refundType){
-        orderReturnSummaryModel.selectRefundType(refundType);
+    public void SelectRefundOption(String refundType , int i){
+        orderReturnSummaryModel.selectRefundType(refundType , i);
     }
 
     public void SelectService(String serviceName , int i){
@@ -45,6 +45,9 @@ public class OrderReturnSummary_Methods {
         orderReturnSummaryModel.ClickOnSubmitBtn();
     }
 
+    public void enterCardDetailsDetailsOnOrderReturnSummary(String CardDetails){
+        orderReturnSummaryModel.enterCardDetails(CardDetails);
+    }
     public void enterPaymentDetailsOnOrderReturnSummary(String CardNumber, String ExpDate, String CVC, String Zip ){
         orderReturnSummaryModel.enterCardNumber(CardNumber);
         orderReturnSummaryModel.enterExpDate(ExpDate);
@@ -61,5 +64,13 @@ public class OrderReturnSummary_Methods {
 
     public void ClickHappyReturnsIcon(){
         orderReturnSummaryModel.ClickOnHappyReturnsIcon();
+    }
+
+    public void ClickRefundTypeIcon(){
+        orderReturnSummaryModel.ClickOnRefundTypeIcon();
+    }
+
+    public void ClickOnRefundidSubmitButton(){
+        orderReturnSummaryModel.ClickOnRefundidSubmitBtn();
     }
 }

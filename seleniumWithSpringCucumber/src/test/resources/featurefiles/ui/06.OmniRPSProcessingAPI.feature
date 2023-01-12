@@ -1,10 +1,10 @@
 @ui
-Feature: OmniRPS Post CheckList Report
+Feature: OmniRPS Post CheckList Report - Post Check List
 
   Background: Login Into OmniRPS Application
     Given Open the Url Of OmniRPS Application
 
-  Scenario: Test process of FTP Returns for Seko Demo retailer
+  Scenario: Test process of API Method for Seko Demo retailer
     Given Enter UserName And Password and Click On SignIn Button
       | UserName      | Password             |
       | akash.trivedi | akash.trivedi@sstech |
@@ -12,10 +12,8 @@ Feature: OmniRPS Post CheckList Report
 
     And Enter Consignment And Press Enter
       | Consignment |
-      | NP87606176  |
-    And Validate Order and Consignment No and Enter Details to Successfully Receive Return
-      | Hub          | Quantity | Style      | ItemNo     | Sku        | Description   | Value | Reason          |
-      | SEKO OMNI NZ | 1        | WF00000004 | WF00000004 | WF00000004 | BLACK BEANBAG | 69.99 | DOESN’T SUIT ME |
+      | TK100342334NZ111  |
+    And API Method Details to Successfully Receive Return
 
   Scenario:
     Given Enter UserName And Password and Click On SignIn Button
@@ -25,7 +23,7 @@ Feature: OmniRPS Post CheckList Report
 
     And Enter Searching Data And Click on Search Button Tracking And History
       | Search     | ProcessingStatus  |
-      | NP87606176 | Processed Returns |
+      | TK100342334NZ111 | Processed Returns |
 
   Scenario:
     Given Enter UserName And Password and Click On SignIn Button
@@ -34,5 +32,5 @@ Feature: OmniRPS Post CheckList Report
     When Click on Management to Check Report
 
     And Enter Searching Data and Click on Search Button in Management
-      | Search     | ProcessingStatus    |
-      | NP87606176 | Processed Returns |
+      | Search     | ProcessingStatus  |
+      | TK100342334NZ111 | Processed Returns |

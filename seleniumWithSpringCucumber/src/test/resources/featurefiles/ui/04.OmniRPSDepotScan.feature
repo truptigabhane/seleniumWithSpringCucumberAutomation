@@ -1,5 +1,5 @@
 @ui
-  Feature: OmniRPS Post CheckList
+  Feature: OmniRPS Post CheckList - Post Check List
 
     Background: Login Into OmniRPS Application
       Given Open the Url Of OmniRPS Application
@@ -10,7 +10,7 @@
         | akash.trivedi | akash.trivedi@sstech |
       When Select Hub and Enter Consignment to Add Depot Scan Event
         | Hub          | Consignment |
-        | SEKO OMNI NZ | NP87606174  |
+        | SEKO OMNI NZ | NP87606589  |
 
     Scenario:
       Given Enter UserName And Password and Click On SignIn Button
@@ -20,7 +20,7 @@
 
       And Enter Searching Data And Click on Search Button Tracking And History
         | Search     | ProcessingStatus  |
-        | NP87606175 | Unprocessed Returns |
+        | NP87606589   | Unprocessed Returns |
 
     Scenario:
       Given Enter UserName And Password and Click On SignIn Button
@@ -29,5 +29,5 @@
       When Click on Management to Check Report
 
       And Enter Searching Data and Click on Search Button in Management
-        | Search     | ProcessingStatus    |
-        | NP87606175 | Unprocessed Returns |
+        | Search   | ProcessingStatus    |
+        | NP87606589 | Unprocessed Returns |

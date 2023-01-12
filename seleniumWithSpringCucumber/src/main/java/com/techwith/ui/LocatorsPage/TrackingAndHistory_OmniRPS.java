@@ -18,4 +18,7 @@ public class TrackingAndHistory_OmniRPS {
     public By SelectHub = By.xpath("//select[@id='hubs']");
     public By EnterDateRange = By.xpath("//input[@id='daterange']");
     public By ClickExportButton = By.xpath("//button[@id='export_booking']");
+
+    public String ValidateConsignment = "//td[normalize-space()='";
+    public String PostValidateConsignment = "']";
 }

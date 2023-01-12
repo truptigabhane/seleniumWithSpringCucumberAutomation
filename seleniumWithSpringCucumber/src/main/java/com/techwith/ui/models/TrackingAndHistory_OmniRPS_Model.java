@@ -2,16 +2,21 @@ package com.techwith.ui.models;
 
 import com.techwith.ui.LocatorsPage.TrackingAndHistory_OmniRPS;
 import com.techwith.ui.models.customUtils.DropdownEnum;
+import org.openqa.selenium.By;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static com.techwith.ui.models.customUtils.elementCommonUtils.*;
+import static com.techwith.webdriver.WebDriverFactory.getDriver;
 
 @Component
 public class TrackingAndHistory_OmniRPS_Model {
 
     @Autowired
     public TrackingAndHistory_OmniRPS trackingAndHistory_omniRPS;
+
+    @Autowired
+    public com.techwith.ui.models.customUtils.elementCommonUtils elementCommonUtils;
 
     public void ClickTrackingAndHistoryMenu(){
         ClickBy(trackingAndHistory_omniRPS.ClickTrackingAndHistory);
@@ -51,5 +56,19 @@ public class TrackingAndHistory_OmniRPS_Model {
 
     public void ClickExportBtn(){
         ClickBy(trackingAndHistory_omniRPS.ClickExportButton);
+    }
+
+    public void EnterTheDateRange(String DateRange){
+        SendKeyBy(trackingAndHistory_omniRPS.EnterDateRange , DateRange);
+    }
+
+    public boolean ValidateTrackAndHistoryConsignment(String Search) {
+        Boolean value = getDriver().findElement(By.xpath(trackingAndHistory_omniRPS.ValidateConsignment + Search + trackingAndHistory_omniRPS.PostValidateConsignment)).isDisplayed();
+        return value;
+    }
+
+    public void ValidateDisplay(String Search) {
+        Boolean SearchValidation = ValidateTrackAndHistoryConsignment(Search);
+        elementCommonUtils.assertBoolValues(Boolean.TRUE, SearchValidation);
     }
 }

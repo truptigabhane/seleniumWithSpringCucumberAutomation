@@ -34,6 +34,10 @@ public class ReturnCreated_OmniRPS_Model {
         SendKeyBy(returnCreated_omniRPS.EnterRMA , RMA);
     }
 
+    public void enterLocationBarcode(String LocationBarcode){
+        SendKeyBy(returnCreated_omniRPS.EnterLocationBarcode , LocationBarcode);
+    }
+
     public void enterWarehouseLocation(String WarehouseLocation){
         SendKeyBy(returnCreated_omniRPS.EnterWarehouseLocation , WarehouseLocation);
     }
@@ -54,8 +58,8 @@ public class ReturnCreated_OmniRPS_Model {
         SendKeyBy(returnCreated_omniRPS.EnterNotes , Notes);
     }
 
-    public void uploadPhotos(String Photos){
-        SendKeyBy(returnCreated_omniRPS.UploadPhotos , Photos);
+    public void ClickOnUploadPhotoBtn(){
+        ClickBy(returnCreated_omniRPS.UploadPhotos);
     }
 
     public void enterStyle(String Style){
@@ -64,6 +68,18 @@ public class ReturnCreated_OmniRPS_Model {
 
     public void enterItemNo(String ItemNo){
         SendKeyBy(returnCreated_omniRPS.EnterItemNo , ItemNo);
+    }
+
+    public void enterCustomerComment(String CustomerComment){
+        SendKeyBy(returnCreated_omniRPS.EnterCustomerComment , CustomerComment);
+    }
+
+    public void enterTotalWeight(String TotalWeight){
+        SendKeyBy(returnCreated_omniRPS.EnterTotalWeight , TotalWeight);
+    }
+
+    public void enterChtComment(String ChtComment){
+        SendKeyBy(returnCreated_omniRPS.EnterChtComment , ChtComment);
     }
 
     public void enterSku(String Sku){

@@ -1,6 +1,7 @@
 package com.techwith.ui.models;
 
 import com.techwith.ui.LocatorsPage.ManualReturn_OmniRPS;
+import com.techwith.ui.LocatorsPage.ReturnCreated_OmniRPS;
 import com.techwith.ui.models.customUtils.DropdownEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,6 +13,9 @@ public class ManualReturn_OmniRPS_Model {
 
     @Autowired
     public ManualReturn_OmniRPS manualReturn_omniRPS;
+
+    @Autowired
+    public ReturnCreated_OmniRPS returnCreated_omniRPS;
 
 //    public void SelectScanRetailer(String OptionName){
 //        SendKeyBy(manualReturn_omniRPS.SelectScanRetailer , OptionName);
@@ -35,5 +39,6 @@ public class ManualReturn_OmniRPS_Model {
 
     public void selectReturnAction(String ReturnAction){
         DropDownBySelect((manualReturn_omniRPS.SelectReturnAction), DropdownEnum.VISIBLE_TEXT() , ReturnAction);
+        ScrollIntoElement(ElementBy(returnCreated_omniRPS.UploadPhotos));
     }
 }

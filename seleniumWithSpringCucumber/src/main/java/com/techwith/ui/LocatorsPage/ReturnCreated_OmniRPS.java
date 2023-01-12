@@ -10,6 +10,7 @@ public class ReturnCreated_OmniRPS {
     public By SelectHub = By.xpath("//select[@id='HubId']");
     public By EnterQuantity = By.xpath("//input[@id='Quantity']");
     public By EnterRMA = By.xpath("//input[@id='RMA']");
+    public By EnterLocationBarcode = By.xpath("//input[@id='LocationBarcode']");
     public By EnterWarehouseLocation = By.xpath("//input[@id='WarehouseLocation']");
     public By EnterMISC_1 = By.xpath("//input[@id='MISC_1']");
     public By EnterMISC_2 = By.xpath("//input[@id='MISC_2']");
@@ -18,11 +19,14 @@ public class ReturnCreated_OmniRPS {
     public By UploadPhotos = By.xpath("//input[@id='ItemPhoto']");
     public By EnterStyle = By.xpath("//input[@id='STYLE']");
     public By EnterItemNo = By.xpath("//input[@id='ItemNo']");
+    public By EnterCustomerComment = By.xpath("//input[@id='CustomerComment']");
+    public By EnterTotalWeight = By.xpath("//input[@id='TotalWeight']");
+    public By EnterChtComment = By.xpath("//input[@id='ChtComment']");
     public By EnterSku = By.xpath("//div[@class='col-md-4 col-sm-12 col-xs-12 sku-box']//input[@id='Sku']");
     public By EnterDescription = By.xpath("//input[@id='Description']");
     public By EnterValue = By.xpath("//input[@id='TotalGBP']");
     public By EnterReason = By.xpath("//input[@id='Reason']");
-    public By EnterSubReason = By.xpath("//input[@id='subreason']");
+    public By EnterSubReason = By.xpath("//input[@id='SubReason']");
     public By SelectCondition = By.xpath("//select[@id='Conditions']");
     public By EnterReviewDescription = By.xpath("//input[@id='ReviewDescription']");
     public By EnterReturnAction = By.xpath("//select[@id='ReturnAction']");

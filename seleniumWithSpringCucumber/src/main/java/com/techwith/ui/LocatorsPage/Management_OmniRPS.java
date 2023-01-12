@@ -14,4 +14,7 @@ public class Management_OmniRPS {
     public By SelectHub = By.xpath("//select[@id='hubs']");
     public By SelectProcessingStatus = By.xpath("//select[@id='not_processed']");
     public By SelectFileType = By.xpath("//select[@id='export_booking_change']");
+
+    public String ValidateConsignment = "//div[normalize-space()='";
+    public String PostValidateConsignment = "']";
 }

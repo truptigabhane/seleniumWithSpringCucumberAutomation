@@ -1,0 +1,77 @@
+package com.techwith.ui.LocatorsPage;
+
+import org.openqa.selenium.By;
+import org.springframework.stereotype.Component;
+
+@Component
+public class CreateOuterConsignment {
+
+    public By ClickCreateOuterConsignmentMenu = By.xpath("//a[normalize-space()='Create Outer Consignment']");
+    public By SelectHub = By.xpath("//select[@id='HubId']");
+    public By SelectOuter = By.xpath("//select[@id='OuterId']");
+    public By EnterCountry = By.xpath("//input[@id='SenderCountry']");
+    public By EnterName = By.xpath("//input[@id='SenderName']");
+    public By EnterBuilding = By.xpath("//input[@id='SenderBuilding']");
+    public By EnterStreet = By.xpath("//input[@id='SenderStreet']");
+    public By EnterSuburb = By.xpath("//input[@id='SenderSuburb']");
+    public By EnterState_City = By.xpath("//input[@id='SenderStateCity']");
+    public By EnterPostcode = By.xpath("//input[@id='SenderPostcode']");
+    public By EnterContact = By.xpath("//input[@id='SenderContact']");
+    public By EnterPhone = By.xpath("//input[@id='SenderPhone']");
+    public By EnterEmail = By.xpath("//input[@id='SenderEmail']");
+    public By EnterReceiverCountry = By.xpath("//input[@id='ReceiverCountry']");
+    public By EnterReceiverName = By.xpath("//input[@id='ReceiverName']");
+    public By EnterReceiverBuilding = By.xpath("//input[@id='ReceiverBuilding']");
+    public By EnterReceiverStreet = By.xpath("//input[@id='ReceiverStreet']");
+    public By EnterReceiverSuburb = By.xpath("//input[@id='ReceiverSuburb']");
+    public By EnterReceiverStateCity = By.xpath("//input[@id='ReceiverStateCity']");
+    public By EnterReceiverPostcode = By.xpath("//input[@id='ReceiverPostcode']");
+    public By EnterReceiverContact = By.xpath("//input[@id='ReceiverContact']");
+    public By EnterReceiverPhone = By.xpath("//input[@id='ReceiverPhone']");
+    public By EnterReceiverEmail = By.xpath("//input[@id='ReceiverEmail']");
+    public By EnterDescription = By.xpath("(//input[@name='CommodityDescription[]'])[1]");
+    public By SelectManfCountry = By.xpath("(//select[@name='CommodityCountry[]'])[1]");
+    public By EnterTotalKg = By.xpath("(//input[@name='CommodityUnitKg[]'])[1]");
+    public By EnterUnits = By.xpath("(//input[@name='CommodityUnits[]'])[1]");
+    public By EnterTotalValue = By.xpath("(//input[@name='CommodityUnitValue[]'])[1]");
+    public By SelectCurrency = By.xpath("//select[@id='CommodityCurrency']");
+    public By EnterPackageUnits = By.xpath("(//input[@name='PackageUnits[]'])[1]");
+    public By SelectLength = By.xpath("(//input[@name='PackageLength[]'])[1]");
+    public By EnterWidth = By.xpath("(//input[@name='PackageWidth[]'])[1]");
+    public By EnterHeight = By.xpath("(//input[@name='PackageHeight[]'])[1]");
+    public By EnterKg = By.xpath("(//input[@name='PackageKg[]'])[1]");
+    public By ClickCalculateFreightBtn = By.xpath("//button[@id='btnCalculateFreight']");
+    public By SelectCarrierService = By.xpath("(//button[@id='btnCreateExportConsignment'])[2]");
+    public By ClickOnUseEternalCannote = By.xpath("//button[@id='externalconnote_btn']");
+    public By ClickOnProcessingDropdown = By.xpath("(//a[@href='https://stage.omnirps.com/return_receipt/processing_cons'])[1]");
+    public By ClickAddOutersToMAWB = By.xpath("//a[normalize-space()='Add Outers to MAWB']");
+    public By SelectEnterHub = By.xpath("//span[@id='select2-hub_name-container']");
+    public By EnterRetailer = By.xpath("//input[@placeholder='All Retailer']");
+    public By ClickSearch = By.xpath("//button[@id='cr_search']");
+    public By EnterText = By.xpath("(//input[@role='textbox'])[2]");
+    public By CheckItem = By.xpath("(//input[@name='chk'])[1]");
+    public By ClickExport = By.xpath("//button[normalize-space()='Export']");
+    public By ClickOnCloseButton = By.xpath("(//button[@type='button'][normalize-space()='Close'])[4]");
+    public By ClickOnCloseBtn = By.xpath("(//button[@type='button'][normalize-space()='Close'])[3]");
+    public By ClickCloseBtn = By.xpath("(//button[@type='button'][normalize-space()='Close'])[1]");
+    public By ClickCreateMAWBButton = By.xpath("//button[normalize-space()='CREATE MAWB']");
+    public String ValidatePopUpHead = "//h4[normalize-space()='";
+    public String PostValidatePopUpHead = "']";
+    public String ValidateHead = "(//h4[@class='modal-title'][normalize-space()='";
+    public String PostValidateHead = "'])[2]";
+    public By EnterWeight = By.xpath("//input[@id='Weight']");
+    public By SelectTransitMode = By.xpath("//select[@id='transit_mode']");
+    public By SelectOriginCountry = By.xpath("//select[@id='OriginCountry']");
+    public By SelectOriginPort = By.xpath("//select[@id='OriginPort']");
+    public By SelectOriginAgent = By.xpath("//select[@id='OriginAgent']");
+    public By SelectDestinationCountry = By.xpath("//select[@id='DestinationCountry']");
+    public By SelectDestinationPort = By.xpath("//select[@id='DestinationPort']");
+    public By SelectDestinationAgent = By.xpath("//select[@id='DestinationAgent']");
+    public By EnterVesselNumber = By.xpath("//input[@id='Vessel_Number']");
+    public By EnterMawb_1 = By.xpath("(//input[@id='mawb3'])[1]");
+    public By EnterMawb_2 = By.xpath("(//input[@id='mawb8'])[1]");
+    public By ClickRemoveIcon = By.xpath("(//a[@class='remove_package_row'])[2]");
+    public By ClickOnSaveBtn = By.xpath("//button[normalize-space()='SAVE']");
+    public By EnterConnote = By.xpath("//input[@id='external_connote']");
+    public By EnterTrackingURL = By.xpath("//input[@id='external_tracking_url']");
+}

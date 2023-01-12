@@ -19,7 +19,8 @@ public class OrderReturnSummary_OReturns {
 
     // Select Refund Type
     public String PreRefundType = "//input[@refundtype='";
-    public String PostRefundType= "']";
+    public String PostRefundType = "']";
+    public By ClickRefundTypeIcon = By.xpath("//i[@class='fa fa-question-circle refundmyImg']");
 
     //Select Services
     public String PreClickGenericReturnButton = "(//h5[contains(text(), '";
@@ -27,7 +28,7 @@ public class OrderReturnSummary_OReturns {
     public String PostClickGenericReturnButton = "]";
 
     public By ClickSubmitButton = By.xpath("//input[@id='PrepaidSubmit']");
-
+    public By EnterCardDetails = By.xpath("//div[@id='card-element_part']");
     public By EnterCardNumber = By.xpath("//input[@placeholder='Card number']");
     public By EnterExpDate = By.xpath("//input[@name='exp-date']");
     public By EnterCVC = By.xpath("//input[@name='cvc']");
@@ -38,5 +39,6 @@ public class OrderReturnSummary_OReturns {
     public By ClickOnSelectStore = By.xpath("//td[@id='ub1402']/descendant::input");
 
     public By ClickHappyReturnsIcon = By.xpath("//i[@class='fa fa-question-circle hapretmyImg']");
+    public By ClickRefundidSubmitButton = By.xpath("//input[@id='refundidSubmitBtn']");
 
 }

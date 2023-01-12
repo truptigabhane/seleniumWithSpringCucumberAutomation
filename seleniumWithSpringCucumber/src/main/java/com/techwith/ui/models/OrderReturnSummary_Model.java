@@ -32,14 +32,16 @@ public class OrderReturnSummary_Model {
         return fetchDataByGetTexts(orderReturnSummaryOReturns.ValidateReturnOption , i);
     }
 
-    public void selectRefundType(String RefundType){
+    public void selectRefundType(String RefundType , int i){
+        ScrollIntoElement(ElementBy(orderReturnSummaryOReturns.ClickRefundTypeIcon));
         elementFromString(orderReturnSummaryOReturns.PreRefundType, RefundType , orderReturnSummaryOReturns.PostRefundType).click();
-//        ScrollIntoElement(ElementBy(orderReturnSummaryOReturns.ClickPayNowButton));
+
     }
 
     public void selectServices(String serviceName , int i){
 //        ScrollIntoElement(ElementBy(orderReturnSummaryOReturns.ClickSubmitButton));
         ScrollIntoElement(ElementBy(orderReturnSummaryOReturns.ClickPayNowButton));
+//        ScrollIntoElement(ElementBy(orderReturnSummaryOReturns.ClickRefundidSubmitButton));
         elementFromStringX4(orderReturnSummaryOReturns.PreClickGenericReturnButton,serviceName , orderReturnSummaryOReturns.MidClickGenericReturnButton,
                 i,orderReturnSummaryOReturns.PostClickGenericReturnButton).click();
     }
@@ -48,6 +50,13 @@ public class OrderReturnSummary_Model {
         ClickBy(orderReturnSummaryOReturns.ClickSubmitButton);
     }
 
+    public void ClickOnRefundidSubmitBtn(){
+        ClickBy(orderReturnSummaryOReturns.ClickRefundidSubmitButton);
+    }
+
+    public void enterCardDetails(String CardDetails){
+        SendKeyBy(orderReturnSummaryOReturns.EnterCardDetails,CardDetails);
+    }
     public void enterCardNumber(String CardNumber){
         SendKeyBy(orderReturnSummaryOReturns.EnterCardNumber,CardNumber);
     }
@@ -72,6 +81,10 @@ public class OrderReturnSummary_Model {
 
     public void ClickOnHappyReturnsIcon(){
         ClickBy(orderReturnSummaryOReturns.ClickHappyReturnsIcon);
+    }
+
+    public void ClickOnRefundTypeIcon(){
+        ClickBy(orderReturnSummaryOReturns.ClickRefundTypeIcon);
     }
 
 }

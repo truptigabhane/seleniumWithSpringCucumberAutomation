@@ -22,6 +22,10 @@ public class TrackingAndHistory_OmniRPS_Methods {
         trackingAndHistory_omniRPS_model.SelectTheProcessingStatus(ProcessingStatus);
     }
 
+    public void EnterDateRange(String DateRange) {
+        trackingAndHistory_omniRPS_model.EnterTheDateRange(DateRange);
+    }
+
     public void ClickSearchButton(){
         trackingAndHistory_omniRPS_model.ClickSearchBtn();
     }

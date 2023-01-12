@@ -37,9 +37,10 @@ public class ProductWiseReturnLabelCreationSteps extends WebDriverFactory {
             String state = mapData.get("State");
             getDriver().switchTo().defaultContent();
             String phoneNumber = mapData.get("PhoneNumber");
+            getDriver().switchTo().defaultContent();
             String extraField = mapData.get("ExtraField");
-            System.out.println(productValue+description + returnReason +returnAction + fullName+ country+ zipcode+ building+ street+ city+ state+ phoneNumber+ extraField);
-            productWiseReturnLabelCreation_methods.FillFormDetails(productValue,description ,returnReason ,returnAction , fullName, country, zipcode, building, street, city, state, phoneNumber, extraField);
+            System.out.println(productValue+description + returnReason +returnAction + fullName+ country+ zipcode+ building+ street+ city+ state+ phoneNumber);
+            productWiseReturnLabelCreation_methods.FillFormDetails(productValue,description ,returnReason ,returnAction , fullName, country, zipcode, building, street, city, state, phoneNumber);
         }
         retailerReturnsMethods.clickOnNextArrowButton();
     }

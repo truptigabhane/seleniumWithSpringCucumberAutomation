@@ -1,5 +1,5 @@
 @ui
-Feature: Omni Returns Transaction Report
+Feature: Omni Returns Transaction Report - Post Check List
 
   Background: Login Into Omni Parcel Return Application For Transaction Report
     Given Open the Url Of Omni Parcel Return Application For Transaction Report
@@ -11,7 +11,7 @@ Feature: Omni Returns Transaction Report
 
     And Search Created Order and Consignment No
       | Consignment |
-      | NP87606134  |
+      | NP87606589  |
 
 
   Scenario: Check Created Order And Consignment Number in Transaction Report
@@ -21,4 +21,4 @@ Feature: Omni Returns Transaction Report
 
     And Search Created Order and Consignment No
       | Consignment |
-      | NP87606135  |
+      | NP87606591    |

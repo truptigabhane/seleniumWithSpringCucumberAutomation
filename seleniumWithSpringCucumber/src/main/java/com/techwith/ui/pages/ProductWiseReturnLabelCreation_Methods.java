@@ -5,6 +5,8 @@ import com.techwith.ui.models.ProductWiseReturnLabelCreation_Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import static com.techwith.webdriver.WebDriverFactory.getDriver;
+
 @Component
 public class ProductWiseReturnLabelCreation_Methods {
 
@@ -14,7 +16,7 @@ public class ProductWiseReturnLabelCreation_Methods {
     @Autowired
     public ConfirmYourDetails_Model confirmYourDetailsModel;
 
-    public void FillFormDetails(String productValue , String description , String returnReason , String returnAction , String fullName , String country , String zipCode , String building , String street , String city , String state , String contactNumber , String extraField ) throws InterruptedException {
+    public void FillFormDetails(String productValue , String description , String returnReason , String returnAction , String fullName , String country , String zipCode , String building , String street , String city , String state , String contactNumber) throws InterruptedException {
         productWiseReturnLabelCreation_model.enterProductValue(productValue);
         productWiseReturnLabelCreation_model.selectDescription(description);
         productWiseReturnLabelCreation_model.selectWhyAreYouReturning(returnReason);
@@ -26,7 +28,8 @@ public class ProductWiseReturnLabelCreation_Methods {
         confirmYourDetailsModel.enterStreet(street);
         confirmYourDetailsModel.enterCity(city);
         confirmYourDetailsModel.enterState(state);
+//        getDriver().switchTo().defaultContent();
         confirmYourDetailsModel.enterContactNumber(contactNumber);
-        confirmYourDetailsModel.enterTestExtraField(extraField);
+//        confirmYourDetailsModel.enterTestExtraField(extraField);
     }
 }

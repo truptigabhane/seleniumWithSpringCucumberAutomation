@@ -32,8 +32,8 @@ public class ConfirmYourDetailsSteps extends WebDriverFactory {
             String state = mapData.get("State");
             getDriver().switchTo().defaultContent();
             String phoneNumber = mapData.get("PhoneNumber");
-            String extraField = mapData.get("ExtraField");
-            confirmYourDetailsMethods.FillTheFormDetails(fullName, country, zipcode, building, street, city, state, phoneNumber, extraField);
+//            String extraField = mapData.get("ExtraField");
+            confirmYourDetailsMethods.FillTheFormDetails(fullName, country, zipcode, building, street, city, state, phoneNumber);
         }
         retailerReturnsMethods.clickOnNextArrowButton();
     }

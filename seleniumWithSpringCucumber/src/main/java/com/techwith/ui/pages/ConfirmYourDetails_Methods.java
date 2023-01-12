@@ -11,7 +11,7 @@ public class ConfirmYourDetails_Methods {
     @Autowired
     public ConfirmYourDetails_Model confirmYourDetailsModel;
 
-    public void FillTheFormDetails(String fullName , String country , String zipCode , String building , String street , String city , String state , String contactNumber , String extraField ) throws InterruptedException {
+    public void FillTheFormDetails(String fullName , String country , String zipCode , String building , String street , String city , String state , String contactNumber) throws InterruptedException {
         confirmYourDetailsModel.enterFullName(fullName);
         confirmYourDetailsModel.selectCountry(country);
         confirmYourDetailsModel.enterZipCode(zipCode);
@@ -22,6 +22,6 @@ public class ConfirmYourDetails_Methods {
         Thread.sleep(2000);
         confirmYourDetailsModel.enterState(state);
         confirmYourDetailsModel.enterContactNumber(contactNumber);
-        confirmYourDetailsModel.enterTestExtraField(extraField);
+//        confirmYourDetailsModel.enterTestExtraField(extraField);
     }
 }

@@ -25,6 +25,11 @@ public class Processing_ORPS_Model {
     public void selectHubFromTheDropDown(String hub){
         DropDownBySelect((processing_orps.selectHubFromTheDropDown), DropdownEnum.VISIBLE_TEXT() , hub);
     }
+    public void selectHub(String hub){
+        DropDownBySelect((processing_orps.SelectHub), DropdownEnum.VISIBLE_TEXT() , hub);
+    }public void selectRetailer(String retailer){
+        DropDownBySelect((processing_orps.SelectRetailer), DropdownEnum.VISIBLE_TEXT() , retailer);
+    }
     public void EnterMISC_1(String misc_1){
         SendKeyBy(processing_orps.EnterMISC_1 , misc_1);
     }
@@ -45,6 +50,9 @@ public class Processing_ORPS_Model {
     }
     public void ClickOnCreateOuterButton(){
         ClickBy(processing_orps.ClickOnCreateOuterButton);
+    }
+    public void ClickOnCreateOuterButtonInProcessing(){
+        ClickBy(processing_orps.ClickOnCreateOuterButtonInProcessing);
     }
     public void ClickOnCancelButton(){
         ClickBy(processing_orps.ClickOnCancelButton);

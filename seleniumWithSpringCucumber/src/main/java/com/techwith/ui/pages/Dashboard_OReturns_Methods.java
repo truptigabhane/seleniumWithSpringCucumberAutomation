@@ -41,4 +41,7 @@ public class Dashboard_OReturns_Methods {
     public void SelectTheReturnsPendingReviewMenu(){
         dashboard_oReturns_model.SelectReturnsPendingReviewMenu();
     }
+    public void ClickOnReportingMenu(){
+        dashboard_oReturns_model.ClickReportingMenu();
+    }
 }

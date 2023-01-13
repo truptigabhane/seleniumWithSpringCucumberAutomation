@@ -26,5 +26,6 @@ public class Dashboard_OReturns {
 
     public String ValidateHeading = "//h2[normalize-space()='";
     public String PostValidateHeading = "']";
+    public By ClickReportingMenu = By.xpath("//body/div[@class='container body']/div[@class='main_container']/div[@class='col-md-3 left_col']/div[@class='left_col scroll-view']/div[@id='sidebar-menu']/div[@class='menu_section active']/ul[@class='nav side-menu']/li[2]/a[1]");
 
 }

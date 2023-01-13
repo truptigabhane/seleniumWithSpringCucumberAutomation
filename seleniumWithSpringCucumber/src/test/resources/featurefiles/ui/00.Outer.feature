@@ -433,7 +433,7 @@ Feature: PHD-873
       | Create Outer |
     And Click On Cancel Button
 
-  Scenario: Create Outer Using Manual Return Process
+  Scenario: Validate 'The Create Outer Popup And 'Create A New Outer Message' In Processing
     Given Enter EmailAddress And Password and Click On LogIn Btn
       | EmailID       | Password             |
       | akash.trivedi | akash.trivedi@sstech |
@@ -453,7 +453,35 @@ Feature: PHD-873
       | PopUp        |
       | Create Outer |
     And Click On Cancel Button
+    Then Validate Create A New Outer Message
 
-#  This connote has already been processed, this retailer’s settings do not allow for
-#  connotes to be processed again.
-#  You may process manually here.
+  Scenario: Create And Validate Outer Using Manual Return Process
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A1112111      |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    Then Click On Create Outer Button
+    Then Validate PopUp
+      | PopUp        |
+      | Create Outer |
+    And Select Hub And Retailer
+      | Hub           | Retailer                     |
+      | SEKO OMNI LAX | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Create Outer Button In Processing
+    Then Validate Outer Created Message
+
+
+
+##  This connote has already been processed, this retailer’s settings do not allow for
+##  connotes to be processed again.
+##  You may process manually here.

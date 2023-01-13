@@ -14,8 +14,19 @@ public class Login_OReturns_Methods {
         login_oReturns_model.enterEmailAddress(emailAddress);
         login_oReturns_model.enterPassword(password);
     }
-
+    public void EnterEmailAddressForReset(String emailAddress) {
+        login_oReturns_model.enterEmailAddressForReset(emailAddress);
+    }
+    public void EnterEmailAddress(String emailAddress) {
+        login_oReturns_model.enterEmailAddress(emailAddress);
+    }
+    public void EnterPassword(String password) {
+        login_oReturns_model.enterPassword(password);
+    }
     public void ClickLogInButton(){
         login_oReturns_model.ClickLogInBtn();
+    }
+    public void EnterConfirmPassword(String confirmPassword) {
+        login_oReturns_model.enterConfirmPassword(confirmPassword);
     }
 }

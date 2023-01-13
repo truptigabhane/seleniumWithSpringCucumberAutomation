@@ -16,8 +16,8 @@ public class ExcelSheetReaderSteps extends WebDriverFactory {
     @Autowired
     public RetailerReturns_Methods retailerReturnsMethods;
 
-    @Given("user fills the form from given sheetname {string} and rownumber {int}")
-    public void user_fills_the_form_from_given_sheetname_and_rownumber(String sheetName, Integer rowNumber) throws IOException, InvalidFormatException {
+    @Given("User fills the form from given Sheetname {string} and Rownumber {int}")
+    public void user_fills_the_form_from_given_Sheetname_and_Rownumber(String sheetName, Integer rowNumber) throws IOException, InvalidFormatException {
         ExcelReader reader = new ExcelReader();
         List<Map<String,String>> testData =
                 reader.getData("D:/OmniParcelReturns.xlsx", sheetName);

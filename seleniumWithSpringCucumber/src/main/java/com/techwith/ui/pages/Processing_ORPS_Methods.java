@@ -19,6 +19,12 @@ public class Processing_ORPS_Methods {
     public void selectScanRetailerFromTheDropDown(String returnReason){
         processing_orps_model.selectScanRetailerFromTheDropDown(returnReason);
     }
+    public void selectHub(String hub){
+        processing_orps_model.selectHub(hub);
+    }
+    public void selectRetailer(String retailer){
+        processing_orps_model.selectRetailer(retailer);
+    }
     public void selectHubFromTheDropDown(String retailer) {
         processing_orps_model.selectHubFromTheDropDown(retailer);
     }
@@ -36,6 +42,9 @@ public class Processing_ORPS_Methods {
     }
     public void ClickOnCreateOuterButton(){
         processing_orps_model.ClickOnCreateOuterButton();
+    }
+    public void ClickOnCreateOuterButtonInProcessing(){
+        processing_orps_model.ClickOnCreateOuterButtonInProcessing();
     }
     public void ClickOnCancelButton(){
         processing_orps_model.ClickOnCancelButton();

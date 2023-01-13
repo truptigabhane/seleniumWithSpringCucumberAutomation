@@ -46,6 +46,19 @@ public class Processing_ORPS_Steps {
             Thread.sleep(1000);
         }
     }
+    @And("Select Hub And Retailer")
+    public void selectHubAndRetailer(DataTable dataTable) throws InterruptedException {
+        processing_orps_methods.clickOnScanRetailerDropDown("");
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String hub = mapData.get("Hub");
+            String retailer = mapData.get("Retailer");
+            processing_orps_methods.selectHub(hub);
+            processing_orps_methods.selectRetailer(retailer);
+
+            Thread.sleep(1000);
+        }
+    }
     @And("Enter Manual Return Process Details")
     public void enterManualReturnProcessDetails(DataTable dataTable) throws InterruptedException {
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
@@ -76,6 +89,10 @@ public class Processing_ORPS_Steps {
     public void validateCreateOuterButton() {
         getDriver().findElement(By.xpath("//button[@id='cr_outer']")).isDisplayed();
     }
+    @Then("Validate Create A New Outer Message")
+    public void validateCreateANewOuterMessage() {
+        getDriver().findElement(By.xpath("//div[@id='msgdiv']")).isDisplayed();
+    }
     @Then("Validate Populated Outer Id And Consignment No")
     public void validatePopulatedOuterIdAndConsignmentNo() {
         var country = getDriver().findElement(processing_orps.SelectOuterId);
@@ -92,5 +109,14 @@ public class Processing_ORPS_Steps {
     public void clickOnCreateOuterButton() throws InterruptedException {
         processing_orps_methods.ClickOnCreateOuterButton();
         Thread.sleep(1000);
+    }
+    @And("Click On Create Outer Button In Processing")
+    public void clickOnCreateOuterButtonInProcessing() throws InterruptedException {
+        processing_orps_methods.ClickOnCreateOuterButtonInProcessing();
+        Thread.sleep(1000);
+    }
+    @Then("Validate Outer Created Message")
+    public void validateOuterCreatedMessage() {
+        getDriver().findElement(By.xpath("//div[@role='alert']")).isDisplayed();
     }
 }

@@ -43,4 +43,7 @@ public class Dashboard_OReturns_Model {
         Boolean HeadingValidation = ValidateTheHeading(Heading);
         elementCommonUtils.assertBoolValues(Boolean.TRUE, HeadingValidation);
     }
+    public void ClickReportingMenu(){
+        ClickBy(dashboard_oReturns.ClickReportingMenu);
+    }
 }

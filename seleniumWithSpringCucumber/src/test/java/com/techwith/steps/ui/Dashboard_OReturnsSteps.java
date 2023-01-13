@@ -22,6 +22,12 @@ public class Dashboard_OReturnsSteps {
     @Autowired
     public Dashboard_OReturns_Model dashboard_oReturns_model;
 
+    @When("Select Reporting to see Transaction Report")
+    public void selectReportingToSeeTransactionReport() {
+        dashboard_oReturns_methods.ClickOnReportingMenu();
+        dashboard_oReturns_methods.SelectTheReportingToSearchOrderAndConsignmentNo();
+    }
+
     @When("Select Companies Option From Manage Dropdown")
     public void selectCompaniesOptionFromManageDropdown() {
         dashboard_oReturns_methods.ClickOnManageMenuDropDown();

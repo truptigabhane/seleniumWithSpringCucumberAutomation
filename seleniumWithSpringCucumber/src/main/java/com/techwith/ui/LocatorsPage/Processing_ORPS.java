@@ -20,5 +20,8 @@ public class Processing_ORPS {
     public By EnterConsignmentNumber = By.xpath("//input[@id='ConsignmentNo']");
     public By ClickOnResetFormButton = By.xpath("//a[normalize-space()='RESET FORM']");
     public By ClickOnCreateOuterButton = By.xpath("//button[@id='cr_outer']");
+    public By ClickOnCreateOuterButtonInProcessing = By.xpath("//button[normalize-space()='CREATE OUTER']");
     public By ClickOnCancelButton = By.xpath("//button[@id='cancle']");
+    public By SelectHub = By.xpath("//select[@id='Hubdrop']");
+    public By SelectRetailer = By.xpath("//select[@id='Retailerdrop']");
 }

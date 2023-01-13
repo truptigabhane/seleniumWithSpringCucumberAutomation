@@ -8,7 +8,7 @@ Feature: Excel Sheet Feature for Omni Returns
     Given Click on Create Return Find the Mentioned Retailer Name and Open It
       | RetailerName    |
       | Seko Demo Store |
-    When user fills the form from given sheetname "<SheetName>" and rownumber <RowNumber>
+    When User fills the form from given Sheetname "<SheetName>" and Rownumber <RowNumber>
 
     Examples:
       | SheetName  | RowNumber |

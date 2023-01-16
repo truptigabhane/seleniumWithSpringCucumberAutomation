@@ -29,6 +29,9 @@ public class CreateOuter_ORPS_Model {
     public void ClickCloseIcon(){
         ClickBy(createOuter_orps.ClickCloseIcon);
     }
+    public void ClickToPrintTemporaryLabel(){
+        ClickBy(createOuter_orps.ClickToPrintTemporaryLabel);
+    }
 
     public boolean ValidateTheErrorMessage(String Search) {
         Boolean value = getDriver().findElement(By.xpath(createOuter_orps.ValidateError + Search + createOuter_orps.PostValidateError)).isDisplayed();

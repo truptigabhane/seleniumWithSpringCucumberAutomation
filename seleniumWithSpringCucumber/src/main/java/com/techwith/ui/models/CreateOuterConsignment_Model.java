@@ -52,6 +52,9 @@ public class CreateOuterConsignment_Model {
     public void ClickRemoveIcon(){
         ClickBy(createOuterConsignment.ClickRemoveIcon);
     }
+    public void ClickRemoveCommodityRowIcon(){
+        ClickBy(createOuterConsignment.ClickRemoveCommodityRowIcon);
+    }
     public void ClickOnSaveBtn(){
         ClickBy(createOuterConsignment.ClickOnSaveBtn);
     }

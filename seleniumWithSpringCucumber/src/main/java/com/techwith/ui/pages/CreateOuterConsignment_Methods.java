@@ -70,6 +70,9 @@ public class CreateOuterConsignment_Methods {
     public void ClickRemoveIcon(){
         createOuterConsignment_model.ClickRemoveIcon();
     }
+    public void ClickRemoveCommodityRowIcon(){
+        createOuterConsignment_model.ClickRemoveCommodityRowIcon();
+    }
     public void ClickOnSaveBtn(){
         createOuterConsignment_model.ClickOnSaveBtn();
     }

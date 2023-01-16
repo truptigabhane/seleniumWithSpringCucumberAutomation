@@ -71,6 +71,7 @@ public class CreateOuterConsignment {
     public By EnterMawb_1 = By.xpath("(//input[@id='mawb3'])[1]");
     public By EnterMawb_2 = By.xpath("(//input[@id='mawb8'])[1]");
     public By ClickRemoveIcon = By.xpath("(//a[@class='remove_package_row'])[2]");
+    public By ClickRemoveCommodityRowIcon = By.xpath("(//a[@class='remove_commodity_row'])[2]");
     public By ClickOnSaveBtn = By.xpath("//button[normalize-space()='SAVE']");
     public By EnterConnote = By.xpath("//input[@id='external_connote']");
     public By EnterTrackingURL = By.xpath("//input[@id='external_tracking_url']");

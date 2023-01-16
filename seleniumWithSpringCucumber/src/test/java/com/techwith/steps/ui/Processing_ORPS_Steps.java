@@ -48,7 +48,7 @@ public class Processing_ORPS_Steps {
     }
     @And("Select Hub And Retailer")
     public void selectHubAndRetailer(DataTable dataTable) throws InterruptedException {
-        processing_orps_methods.clickOnScanRetailerDropDown("");
+//        processing_orps_methods.clickOnScanRetailerDropDown("");
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
         for (Map<String, String> mapData : data) {
             String hub = mapData.get("Hub");

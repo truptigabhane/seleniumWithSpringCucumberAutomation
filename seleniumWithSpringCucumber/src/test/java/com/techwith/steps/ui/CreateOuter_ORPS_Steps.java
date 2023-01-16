@@ -114,4 +114,9 @@ public class CreateOuter_ORPS_Steps {
             companiesManage_oReturns_model.ValidateErrorDisplay(error);
         }
     }
+    @And("Click To Print Temporary Label")
+    public void clickToPrintTemporaryLabel() throws InterruptedException {
+        createOuter_orps_methods.ClickToPrintTemporaryLabel();
+        Thread.sleep(3000);
+    }
 }

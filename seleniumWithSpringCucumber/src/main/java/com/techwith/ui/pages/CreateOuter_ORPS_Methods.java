@@ -22,4 +22,7 @@ public class CreateOuter_ORPS_Methods {
     public void ClickCloseIcon(){
         createOuter_orps_model.ClickCloseIcon();
     }
+    public void ClickToPrintTemporaryLabel(){
+        createOuter_orps_model.ClickToPrintTemporaryLabel();
+    }
 }

@@ -173,6 +173,11 @@ public class CreateOuterConsignment_Steps {
         createOuterConsignment_methods.ClickRemoveIcon();
         Thread.sleep(1000);
     }
+    @And("Click Remove Commodity Row Icon")
+    public void clickRemoveCommodityRowIcon() throws InterruptedException {
+        createOuterConsignment_methods.ClickRemoveCommodityRowIcon();
+        Thread.sleep(1000);
+    }
     @And("Click On Save Btn")
     public void clickOnSaveBtn() throws InterruptedException {
         createOuterConsignment_methods.ClickOnSaveBtn();

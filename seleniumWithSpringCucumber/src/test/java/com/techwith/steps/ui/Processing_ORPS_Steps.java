@@ -119,4 +119,9 @@ public class Processing_ORPS_Steps {
     public void validateOuterCreatedMessage() {
         getDriver().findElement(By.xpath("//div[@role='alert']")).isDisplayed();
     }
+    @And("Click On 'CLICK HERE' To Print Temporary Label")
+    public void clickOnCLICKHEREToPrintTemporaryLabel() throws InterruptedException {
+        processing_orps_methods.ClickOnCLICKHEREToPrintTemporaryLabel();
+        Thread.sleep(3000);
+    }
 }

@@ -50,7 +50,7 @@ public class CreateOuterConsignment {
     public By ClickSearch = By.xpath("//button[@id='cr_search']");
     public By EnterText = By.xpath("(//input[@role='textbox'])[2]");
     public By CheckItem = By.xpath("(//input[@name='chk'])[1]");
-    public By ClickExport = By.xpath("//button[normalize-space()='Export']");
+    public By ClickExport = By.xpath("//button[normalize-space()='EXPORT']");
     public By ClickOnCloseButton = By.xpath("(//button[@type='button'][normalize-space()='Close'])[4]");
     public By ClickOnCloseBtn = By.xpath("(//button[@type='button'][normalize-space()='Close'])[3]");
     public By ClickCloseBtn = By.xpath("(//button[@type='button'][normalize-space()='Close'])[1]");

@@ -54,6 +54,9 @@ public class Processing_ORPS_Model {
     public void ClickOnCreateOuterButtonInProcessing(){
         ClickBy(processing_orps.ClickOnCreateOuterButtonInProcessing);
     }
+    public void ClickOnCLICKHEREToPrintTemporaryLabel(){
+        ClickBy(processing_orps.ClickOnCLICKHEREToPrintTemporaryLabel);
+    }
     public void ClickOnCancelButton(){
         ClickBy(processing_orps.ClickOnCancelButton);
     }

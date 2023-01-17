@@ -24,4 +24,5 @@ public class Processing_ORPS {
     public By ClickOnCancelButton = By.xpath("//button[@id='cancle']");
     public By SelectHub = By.xpath("//select[@id='Hubdrop']");
     public By SelectRetailer = By.xpath("//select[@id='Retailerdrop']");
+    public By ClickOnCLICKHEREToPrintTemporaryLabel = By.xpath("//a[normalize-space()='CLICK HERE']");
 }

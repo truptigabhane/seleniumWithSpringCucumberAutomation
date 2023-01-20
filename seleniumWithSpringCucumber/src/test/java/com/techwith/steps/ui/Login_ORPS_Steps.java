@@ -60,4 +60,13 @@ public class Login_ORPS_Steps {
             userManage_oReturns_model.ValidateDisplay(mode);
         }
     }
+    @Given("Enter EmailAddress And Password and Click On LogIn Btn In Hub User")
+    public void enterEmailAddressAndPasswordAndClickOnLogInBtnInHubUser(DataTable dataTable) {List<Map<String, String>> data = dataTable.asMaps(String.class , String.class);
+        for (Map<String,String> mapData:data){
+            String emailID = mapData.get("EmailID");
+            String password = mapData.get("Password");
+            login_orps_methods.EnterEmailAddressAndPassword(emailID + "@gmail.com" , password);
+        }
+        login_orps_methods.ClickSignInButton();
+    }
 }

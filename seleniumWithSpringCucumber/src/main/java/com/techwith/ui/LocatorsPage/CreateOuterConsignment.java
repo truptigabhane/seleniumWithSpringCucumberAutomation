@@ -75,4 +75,15 @@ public class CreateOuterConsignment {
     public By ClickOnSaveBtn = By.xpath("//button[normalize-space()='SAVE']");
     public By EnterConnote = By.xpath("//input[@id='external_connote']");
     public By EnterTrackingURL = By.xpath("//input[@id='external_tracking_url']");
+    public By EnterOuterConnoteForScanToTick = By.xpath("//input[@id='OuterScanToTick']");
+    public String ValidateOuterCannoteCheckBox = "//input[@data-consignmentno='";
+    public String PostValidateOuterCannoteCheckBox = "']";
+    public By ValidateScanToTickBoxIsEmpty = By.xpath("//input[@id='OuterScanToTick']");
+//    public String ValidateUnits = "//input[@name='hubselected' and @value='";
+//    public String PostValidateUnits = "']";
+    public By EnterSearch = By.xpath("//input[@id='s_mawb']");
+    public By SelectOriginFacility = By.xpath("//select[@id='Origin_Facility']");
+    public By SelectDestination_Port = By.xpath("//select[@id='Destination_Port']");
+    public By SelectRetailer = By.xpath("//input[@placeholder='Select Retailer']");
+    public By SelectSubRetailer = By.xpath("//input[@placeholder='Select Sub Retailer']");
 }

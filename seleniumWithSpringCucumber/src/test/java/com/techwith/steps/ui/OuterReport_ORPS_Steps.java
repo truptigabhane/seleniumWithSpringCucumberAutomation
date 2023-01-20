@@ -136,4 +136,15 @@ public class OuterReport_ORPS_Steps {
         elementCommonUtils.inputFieldIsEmptyOrNot(email);
         elementCommonUtils.inputFieldIsEmptyOrNot(deliveryInstructions);
     }
+    @And("Enter Search Details To Search Outer In Hub User")
+    public void enterSearchDetailsToSearchOuterInHubUser(DataTable dataTable) {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String search = mapData.get("Search");
+            String outerStatus = mapData.get("OuterStatus");
+            String retailer = mapData.get("Retailer");
+            String reports = mapData.get("Reports");
+            outerReport_orps_methods.FillSearchDetailsInHubUser(search , outerStatus , retailer , reports);
+        }
+    }
 }

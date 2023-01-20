@@ -1,10 +1,10 @@
 @ui
-Feature: Hubatron
+Feature: Outer Admin
 
   Background: Login Into OmniRPS Application
     Given Open the Url Of OmniRPS Application For Stage Environment
 
-        #################### Create Outer ######################
+        ################### Create Outer ######################
 
   Scenario: Validate Create Outer Homepage and URL
     Given Enter EmailAddress And Password and Click On LogIn Btn
@@ -840,5 +840,172 @@ Feature: Hubatron
       | SuccessAlert                                                    |
       | Outer Consolidation for MAWB 233-97492111 successfully created. |
 
-    #Validate units####
-  #Scan to tick######
+  Scenario: Enter Outer Connote For Scan To Tick And Validate Selected Outer Connote Checkbox
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Add Outers Details And Search
+      | Hub           | Retailer                       |
+      | SEKO OMNI LAX | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick           |
+      | 61290988336622094438 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622094438 |
+
+  Scenario: Enter Multiple Outer Connote For Scan To Tick And Validate Selected Outer Connotes Checkbox
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Add Outers Details And Search
+      | Hub           | Retailer                       |
+      | SEKO OMNI LAX | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick           |
+      | 61290988336622094438 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622094438 |
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick  |
+      | FD560001608 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote |
+      | FD560001608  |
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick |
+      | AT123451   |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote |
+      | AT123451     |
+
+  Scenario: Enter Outer Connote For 'Scan To Tick' Then Uncheck Selected Connote And Validate 'Scan To Tick' Red Box
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Add Outers Details And Search
+      | Hub           | Retailer                       |
+      | SEKO OMNI LAX | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick |
+      | AT123451   |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote |
+      | AT123451     |
+    And Uncheck Outer Connote Checkbox
+      | OuterConnote |
+      | AT123451     |
+    Then Validate Scan To Tick Box Is Empty
+    Then Validate Scan To Tick Box Error
+
+  Scenario: Enter Outer Connote For 'Scan To Tick' Then Validate 'Scan To Tick' Green Box
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Add Outers Details And Search
+      | Hub           | Retailer                     |
+      | SEKO OMNI LAX | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick |
+      | AT123451   |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote |
+      | AT123451     |
+    Then Validate Scan To Tick Box Is Empty
+    Then Validate Scan To Tick Green Box
+
+    Scenario: Enter Outer Connote For 'Scan To Tick' Then Export And Validate Readonly Units
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Add Outers Details And Search
+      | Hub           | Retailer                     |
+      | SEKO OMNI LAX | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick         |
+      | SPXHEF038600005857 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote       |
+      | SPXHEF038600005857 |
+      Then Enter Outer Connote For Scan To Tick
+      | ScanToTick  |
+      | FD560001608 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote |
+      | FD560001608  |
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick |
+      | AT123451   |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote |
+      | AT123451     |
+    And Click On Export Btn
+    Then Validate Log Details PopUp
+      | PopUp                  |
+      | MAWB allocate and send |
+    Then Validate Readonly Units
+
+#################### MAWB - Outer Consolidations #######################
+
+  Scenario: Validate "MAWB - Outer Consolidations" Homepage and URL
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click MAWB - Outer Consolidations
+    And Validate Page URL
+      | URL                                                |
+      | https://stage.omnirps.com/outer/mawb_export_report |
+    Then Validate The Page Heading
+      | Heading                     |
+      | MAWB - Outer Consolidations |
+
+  Scenario: Search "MAWB - Outer Consolidations" Details Without Filling Any Details.
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click MAWB - Outer Consolidations
+    And Validate Page URL
+      | URL                                                |
+      | https://stage.omnirps.com/outer/mawb_export_report |
+    Then Validate The Page Heading
+      | Heading                     |
+      | MAWB - Outer Consolidations |
+    And Click On Search Button To Search
+
+  Scenario: Search And Validate "MAWB - Outer Consolidations" Details
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click MAWB - Outer Consolidations
+    And Validate Page URL
+      | URL                                                |
+      | https://stage.omnirps.com/outer/mawb_export_report |
+    Then Validate The Page Heading
+      | Heading                     |
+      | MAWB - Outer Consolidations |
+    And Fill Outers Consolidations Details
+      | Search       | OriginFacility        | DestinationPort     | Retailer                     | SubRetailer |
+      | 134-78987587 | UNITED STATES-LAX-AIR | NEW ZEALAND-CHC-AIR | SEKO DEMO-RETURN TO THE FOLD | 1           |
+    And Click On Search Button To Search
+    Then Validate Searched Company Details In MAWB Outer Consolidations
+      | Origin            | DestinationMode | Mode | MAWB         |
+      | UNITED STATES-LAX | NEW ZEALAND-CHC | AIR  | 134-78987587 |

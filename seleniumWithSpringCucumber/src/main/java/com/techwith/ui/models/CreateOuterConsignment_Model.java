@@ -133,4 +133,12 @@ public class CreateOuterConsignment_Model {
     public void enterMawb_2(String mawb_2){ SendKeyBy(createOuterConsignment.EnterMawb_2 , mawb_2);}
     public void EnterConnote(String connote){ SendKeyBy(createOuterConsignment.EnterConnote , connote);}
     public void EnterTrackingURL(String trackingURL){ SendKeyBy(createOuterConsignment.EnterTrackingURL , trackingURL);}
+    public void EnterOuterConnoteForScanToTick(String scanToTick){ SendKeyBy(createOuterConsignment.EnterOuterConnoteForScanToTick , scanToTick);}
+    public void enterSearch(String search){ SendKeyBy(createOuterConsignment.EnterSearch , search);}
+    public void selectOriginFacility(String originFacility){
+        DropDownBySelect((createOuterConsignment.SelectOriginFacility), DropdownEnum.VISIBLE_TEXT() , originFacility);
+    }
+    public void selectDestination_Port(String destinationPort){
+        DropDownBySelect((createOuterConsignment.SelectDestination_Port), DropdownEnum.VISIBLE_TEXT() , destinationPort);
+    }
 }

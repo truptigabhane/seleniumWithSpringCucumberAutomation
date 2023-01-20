@@ -63,4 +63,10 @@ public class OuterReport_ORPS_Methods {
     public void ClickOnReceiverResetButton(){
         outerReport_orps_model.ClickOnReceiverResetButton();
     }
+    public void FillSearchDetailsInHubUser(String search , String outerStatus , String retailer , String hub) {
+        outerReport_orps_model.EnterSearch(search);
+        SelectOuterStatus(outerStatus);
+        SelectRetailer(retailer);
+        SelectHub(hub);
+    }
 }

@@ -10,11 +10,13 @@ import com.techwith.ui.pages.CreateOuterConsignment_Methods;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
 
+import static com.techwith.ui.models.customUtils.elementCommonUtils.ClickBy;
 import static com.techwith.webdriver.WebDriverFactory.getDriver;
 
 public class CreateOuterConsignment_Steps {
@@ -202,6 +204,18 @@ public class CreateOuterConsignment_Steps {
             createOuterConsignment_methods.FillAddOutersDetails(hub , retailer);
         }
     }
+    @And("Fill Outers Consolidations Details")
+    public void fillOutersConsolidationsDetails(DataTable dataTable) {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String search = mapData.get("Search");
+            String originFacility = mapData.get("OriginFacility");
+            String destinationPort = mapData.get("DestinationPort");
+            String retailer = mapData.get("Retailer");
+            String subRetailer = mapData.get("SubRetailer");
+            createOuterConsignment_methods.FillOutersConsolidationsDetails(search , originFacility , destinationPort , retailer , subRetailer);
+        }
+    }
     @Then("Validate PopUp")
     public void validatePopUp(DataTable dataTable) {
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
@@ -319,6 +333,63 @@ public class CreateOuterConsignment_Steps {
         for (Map<String, String> mapData : data) {
             String retailer = mapData.get("Retailer");
             userManage_oReturns_model.ValidateDisplay(retailer);
+        }
+    }
+    @And("Enter Outer Connote For Scan To Tick")
+    public void enterOuterConnoteForScanToTick(DataTable dataTable) {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String scanToTick = mapData.get("ScanToTick");
+            createOuterConsignment_methods.EnterOuterConnoteForScanToTick(scanToTick );
+        }
+    }
+    @Then("Validate Outer Connote Checkbox")
+    public void validateCloseOuterDetails(DataTable dataTable) {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String outerConnote = mapData.get("OuterConnote");
+            createOuterConsignment_methods.ValidateCloseOuterDetails(outerConnote);
+        }
+    }
+    @Then("Validate Scan To Tick Box Error")
+    public void validateScanToTickBoxError() {
+        getDriver().findElement(By.xpath("//input[@id='OuterScanToTick' and @style='border-color: red; border-width: medium;']")).isDisplayed();
+    }
+    @Then("Validate Scan To Tick Green Box")
+    public void validateScanToTickGreenBox () {
+        getDriver().findElement(By.xpath("//input[@id='OuterScanToTick' and @style='border-color: green; border-width: medium;']")).isDisplayed();
+    }
+    @Then("Validate Scan To Tick Box Is Empty")
+    public void validateScanToTickBoxIsEmpty() {
+        var scanToTick = getDriver().findElement(createOuterConsignment.ValidateScanToTickBoxIsEmpty);
+        elementCommonUtils.inputFieldIsEmptyOrNot(scanToTick);
+    }
+    @Then("Uncheck Outer Connote Checkbox")
+    public void uncheckOuterConnoteCheckbox(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String outerConnote = mapData.get("OuterConnote");
+            createOuterConsignment_methods.ClickToUncheck(outerConnote);
+            Thread.sleep(3000);
+        }
+    }
+    @Then("Validate Readonly Units")
+    public void validateReadonlyUnits () throws InterruptedException {
+        getDriver().findElement(By.xpath("//input[@id='Units']")).isDisplayed();
+        Thread.sleep(2000);
+    }
+    @Then("Validate Searched Company Details In MAWB Outer Consolidations")
+    public void validateSearchedCompanyDetailsInMAWBOuterConsolidations(DataTable dataTable) {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String origin = mapData.get("Origin");
+            String destinationMode = mapData.get("DestinationMode");
+            String mode = mapData.get("Mode");
+            String mawb = mapData.get("MAWB");
+            companiesManage_oReturns_model.ValidateChangeType(origin);
+            companiesManage_oReturns_model.ValidateChangeType(destinationMode);
+            companiesManage_oReturns_model.ValidateChangeType(mode);
+            companiesManage_oReturns_model.ValidateChangeType(mawb);
         }
     }
 }

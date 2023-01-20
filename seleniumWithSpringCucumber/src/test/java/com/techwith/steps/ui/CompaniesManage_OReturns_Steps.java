@@ -255,7 +255,7 @@ public class CompaniesManage_OReturns_Steps {
     public void validateSearchedCompanyDetails(DataTable dataTable) {
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
         for (Map<String, String> mapData : data) {
-            String company = mapData.get("Company");
+            String company = mapData.get("Origin");
             String country = mapData.get("Country");
             String domain = mapData.get("Domain");
             String email = mapData.get("Email");

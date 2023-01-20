@@ -4,6 +4,7 @@ import com.techwith.ui.LocatorsPage.CompaniesManage_OReturns;
 import com.techwith.ui.LocatorsPage.CreateOuterConsignment;
 import com.techwith.ui.models.CompaniesManage_OReturns_Model;
 import com.techwith.ui.models.CreateOuterConsignment_Model;
+import com.techwith.ui.models.customUtils.elementCommonUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,11 +109,12 @@ public class CreateOuterConsignment_Methods {
         createOuterConsignment_model.EnterText(TypeText);
         getDriver().findElement(By.xpath("(//input[@role='textbox'])[2]")).sendKeys(Keys.ENTER);
     }
-    public void EnterRetailer(String TypeText){
+    public void EnterRetailer(String Retailer){
 //        ClickBy(createOuterConsignment.EnterRetailer);
-        ClickBy(companiesManage_oReturns.EnterChangeTypeText);
-        companiesManage_oReturns_model.enterText(TypeText);
-        getDriver().findElement(By.xpath("//input[@role='textbox']")).sendKeys(Keys.ENTER);
+        ClickBy(createOuterConsignment.EnterRetailer);
+        createOuterConsignment_model.EnterRetailer(Retailer);
+        getDriver().findElement(createOuterConsignment.EnterRetailer);
+//        getDriver().findElement(By.xpath("//input[@role='textbox']")).sendKeys(Keys.ENTER);
     }
     public void FillAddOutersDetails( String hub , String retailer ) {
         SelectEnterHub(hub);
@@ -130,5 +132,38 @@ public class CreateOuterConsignment_Methods {
         createOuterConsignment_model.enterVesselNumber(vesselNumber);
         createOuterConsignment_model.enterMawb_1(mawb_1);
         createOuterConsignment_model.enterMawb_2(mawb_2);
+    }
+    public void EnterOuterConnoteForScanToTick(String scanToTick) {
+        createOuterConsignment_model.EnterOuterConnoteForScanToTick(scanToTick);
+    }
+    public boolean ValidateDetails(String Search) {
+        Boolean value = getDriver().findElement(By.xpath(createOuterConsignment.ValidateOuterCannoteCheckBox + Search + createOuterConsignment.PostValidateOuterCannoteCheckBox)).isDisplayed();
+        return value;
+    }
+    public void ValidateCloseOuterDetails(String ChangeType) {
+        Boolean ChangeTypeValidation = ValidateDetails(ChangeType);
+        elementCommonUtils.assertBoolValues(Boolean.TRUE, ChangeTypeValidation);
+    }
+
+    public void ClickToUncheck(String CheckBox) throws InterruptedException {
+        Thread.sleep(2000);
+        getDriver().findElement(By.xpath(createOuterConsignment.ValidateOuterCannoteCheckBox + CheckBox + createOuterConsignment.PostValidateOuterCannoteCheckBox)).click();
+    }
+    public void selectRetailer(String retailer){
+        ClickBy(createOuterConsignment.SelectRetailer);
+        companiesManage_oReturns_model.enterText(retailer);
+        getDriver().findElement(By.xpath("//input[@role='textbox']")).sendKeys(Keys.ENTER);
+    }
+    public void selectSubRetailer(String subRetailer){
+        ClickBy(createOuterConsignment.SelectSubRetailer);
+        companiesManage_oReturns_model.enterText(subRetailer);
+        getDriver().findElement(By.xpath("//input[@role='textbox']")).sendKeys(Keys.ENTER);
+    }
+    public void FillOutersConsolidationsDetails( String search , String originFacility , String destinationPort , String retailer , String subRetailer) {
+        createOuterConsignment_model.enterSearch(search);
+//        createOuterConsignment_model.selectOriginFacility(originFacility);
+        createOuterConsignment_model.selectDestination_Port(destinationPort);
+//        selectRetailer(retailer);
+//        selectSubRetailer(subRetailer);
     }
 }

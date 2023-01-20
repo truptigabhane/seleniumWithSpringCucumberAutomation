@@ -1,5 +1,5 @@
 @ui
-Feature: Omni Returns Product Wise - Post Check List
+Feature: Omni Parcel Product Wise Consignment Creation - Post Check List
 
   Background: Login Into Omni Parcel Return Application
     Given Open the Url Of Omni Parcel Return Application

@@ -1,5 +1,5 @@
 @ui
-Feature: Omni Returns Order Wise - Post Check List
+Feature: Omni Parcel Order Wise Consignment Creation - Post Check List
 
   Background: Login Into Omni Parcel Return Application
     Given Open the Url Of Omni Parcel Return Application
@@ -33,7 +33,7 @@ Feature: Omni Returns Order Wise - Post Check List
       | ProductValue | Description | ReturnReason    | ReturnAction | FullName      | Country          | ZipCode | Building  | Street    | City          | State     | PhoneNumber | ExtraField |
       | 11           | CLOTHES     | Doesn’t suit me | Refund       | Akash Trivedi | United States-US | 10001   | Apartment | main 1024 | New York City | New York  | 6309194800  | Test       |
     And Validate the Order Summary and Process the Order To Create Consignment Using Happy Returns
-      | OrderNumber | ProductName | ReturnReason    | ReturnOption | RefundType | Service       | CardNumber          | ExpDate | CVC | Zip   |
+      | OrderNumber | ProductName | ReturnReason    | ReturnOption | RefundType      | Service       | CardNumber          | ExpDate | CVC | Zip   |
       | AT1212      | CLOTHES     | DOESN’T SUIT ME | REFUND       | Standard Refund | HAPPY RETURNS | 4111 1111 1111 1111 | 01 / 23 | 123 | 10001 |
     And Validate the Success Return and Create Consignment
       | OrderNumber | Name          |

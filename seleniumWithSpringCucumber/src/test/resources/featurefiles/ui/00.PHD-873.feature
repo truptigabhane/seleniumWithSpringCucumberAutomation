@@ -4,19 +4,50 @@ Feature: PHD-873
   Background: Login Into OmniRPS Application
     Given Open the Url Of OmniRPS Application For Stage Environment
 
-  Scenario: 1.When accessing from processing page : a.hub should be pre-populated with hub selected on processing page#########
+  Scenario: 1.When accessing from processing page : a.hub should be pre-populated with hub selected on processing page
     Given Enter EmailAddress And Password and Click On LogIn Btn
       | EmailID       | Password             |
       | akash.trivedi | akash.trivedi@sstech |
     When Click on Processing Menu
     And Click On Processing Dropdown
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A144440003    |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    And Enter Manual Return Process Details
+      | MISC_1 | MISC_3 | OrderNo | MISC_2 |
+      | TEST   | TEST   | AT1213  | TEST   |
+    And Click Submit And Close Outer Button
+    Then Validate Outer Id
+    Then Validate Populated Hub Data
 
-  Scenario: 1.When accessing from processing page : b.received should be pre-populated with address from retailer settings > hub address#########
+  Scenario: 1.When accessing from processing page : b.received should be pre-populated with address from retailer settings > hub address
     Given Enter EmailAddress And Password and Click On LogIn Btn
       | EmailID       | Password             |
       | akash.trivedi | akash.trivedi@sstech |
     When Click on Processing Menu
     And Click On Processing Dropdown
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A14444121225  |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    And Enter Manual Return Process Details
+      | MISC_1 | MISC_3 | OrderNo | MISC_2 |
+      | TEST   | TEST   | AT1125  | TEST   |
+    And Click Submit And Close Outer Button
+    Then Validate Outer Id
+    Then Validate Populated Hub Data
+    Then Validate Populated Receiver Data
 
   Scenario: 2.Accessing from nav : a.Hub should be pre populated if there is only one hub the user has access to
     Given Enter EmailAddress And Password and Click On LogIn Btn

@@ -8,7 +8,7 @@ Feature: Omni Returns
     Given Enter EmailAddress And Password and Click On LogIn Button
     When Select Carriers Option From Manage Dropdown
     And Validate Page URL
-      | URL                                                 |
+      | URL                                                |
       | https://stage.omniparcelreturns.com/admin/carriers |
     Then Validate The Open Page
       | Heading   |

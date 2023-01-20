@@ -1,5 +1,5 @@
 @ui
-Feature: Outer Admin
+Feature: Outer Admin User
 
   Background: Login Into OmniRPS Application
     Given Open the Url Of OmniRPS Application For Stage Environment
@@ -398,7 +398,7 @@ Feature: Outer Admin
     And Click Submit And Close Outer Button
     Then Validate Outer Id
 
-  Scenario: Reset Form While Closing Outer And Validate Empty Fields
+  Scenario: Reset Form While Closing Outer And Validate Navigated Page
     Given Enter EmailAddress And Password and Click On LogIn Btn
       | EmailID       | Password             |
       | akash.trivedi | akash.trivedi@sstech |

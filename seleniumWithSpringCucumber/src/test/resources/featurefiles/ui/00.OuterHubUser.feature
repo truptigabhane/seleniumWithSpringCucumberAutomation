@@ -453,3 +453,258 @@ Feature: Outer Hub User
       | Create Outer |
     And Click On Cancel Button
     Then Validate Create A New Outer Message
+
+  Scenario: Create And Validate Outer Using Manual Return Process
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A11128981     |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    Then Click On Create Outer Button
+    Then Validate PopUp
+      | PopUp        |
+      | Create Outer |
+    And Select Hub And Retailer
+      | Hub           | Retailer                     |
+      | SEKO OMNI LAX | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Create Outer Button In Processing
+    Then Validate Outer Created Message
+
+  Scenario: Verify If The Connote Already Processed Then Validate The Retailer’s Settings Do Not Allow For Connotes To Be Processed Again Alert.
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A11128981     |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    And Enter Manual Return Process Details
+      | MISC_1 | MISC_3 | OrderNo | MISC_2 |
+      | TEST   | TEST   | AA      | TEST   |
+    And Click Submit And Close Outer Button
+    Then Validate Outer Created Message
+
+  Scenario: Close Outer Status Using Processing And Validate Populated Sender Details
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A14444109093  |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    And Enter Manual Return Process Details
+      | MISC_1 | MISC_3 | OrderNo | MISC_2 |
+      | TEST   | TEST   | AT1213  | TEST   |
+    And Click Submit And Close Outer Button
+    Then Validate Outer Id
+    Then Validate Populated Hub Data
+
+  Scenario: Close Outer Status Using Processing And Validate Populated Receiver Details
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A1449894425   |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    And Enter Manual Return Process Details
+      | MISC_1 | MISC_3 | OrderNo | MISC_2 |
+      | TEST   | TEST   | AT1125  | TEST   |
+    And Click Submit And Close Outer Button
+    Then Validate Outer Id
+    Then Validate Populated Hub Data
+    Then Validate Populated Receiver Data
+
+  Scenario: Close Outer Status Using Processing And Enter 'Commodities Declaration' And 'Packages' Info
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | AA1444426     |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    And Enter Manual Return Process Details
+      | MISC_1 | MISC_3 | OrderNo | MISC_2 |
+      | TEST   | TEST   | AT1126  | TEST   |
+    And Click Submit And Close Outer Button
+    Then Validate Outer Id
+    And Enter Commodities Declaration Info
+      | Description | ManfCountry | TotalKg | Units | TotalValue | Currency |
+      | test        | China       | 0.5     | 1     | 35         | NZD      |
+    And Click Remove Commodity Row Icon
+    And Enter Packages Info
+      | Units | Length | Width | Height | KG |
+      | 1     | 11     | 11    | 11     | 1  |
+    And Click Remove Icon
+
+  Scenario: Close Outer Status Using Processing And Create Connote By Clicking 'Use External Connote' Button
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A1990444441   |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    And Enter Manual Return Process Details
+      | MISC_1 | MISC_3 | OrderNo | MISC_2 |
+      | TEST   | TEST   | AT1144  | TEST   |
+    And Click Submit And Close Outer Button
+    Then Validate Outer Id
+    Then Validate Populated Hub Data
+    And Enter Sender Email
+      | Email            |
+      | test@example.com |
+    Then Validate Populated Receiver Data
+    And Enter Receiver Email
+      | Email                  |
+      | sstech.akash@gmail.com |
+    And Enter Commodities Declaration Info
+      | Description | ManfCountry | TotalKg | Units | TotalValue | Currency |
+      | test        | China       | 0.5     | 1     | 35         | NZD      |
+    And Click Remove Commodity Row Icon
+    And Enter Packages Info
+      | Units | Length | Width | Height | KG |
+      | 1     | 11     | 11    | 11     | 1  |
+    And Click Remove Icon
+    And Click Calculate Freight Button
+    And Click On Use Eternal Cannote
+    Then Validate PopUp
+      | PopUp                |
+      | USE EXTERNAL CONNOTE |
+    And Fill Use External Connote
+      | Connote  | TrackingURL                                 |
+      | 11122212 | https://test.omnirps.com/track/?id=11122212 |
+    And Click On Save Btn
+    Then Validate Success Message Alert
+    Then Validate Success Alert
+      | SuccessAlert                                                                     |
+      | You have successfully created Connotes 11122212 for SEKO DEMO-RETURN TO THE FOLD |
+
+  Scenario: Close Outer Status Using Processing And Create Connote By Selecting Carrier Service
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | AT11113441    |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    And Enter Manual Return Process Details
+      | MISC_1 | MISC_3 | OrderNo | MISC_2 |
+      | TEST   | TEST   | AT1144  | TEST   |
+    And Click Submit And Close Outer Button
+    Then Validate Outer Id
+    Then Validate Populated Hub Data
+    And Enter Sender Email
+      | Email            |
+      | test@example.com |
+    Then Validate Populated Receiver Data
+    And Enter Receiver Email
+      | Email                  |
+      | sstech.akash@gmail.com |
+    And Enter Commodities Declaration Info
+      | Description | ManfCountry | TotalKg | Units | TotalValue | Currency |
+      | test        | China       | 0.5     | 1     | 35         | NZD      |
+    And Click Remove Commodity Row Icon
+    And Enter Packages Info
+      | Units | Length | Width | Height | KG |
+      | 1     | 11     | 11    | 11     | 1  |
+    And Click Remove Icon
+    And Click Calculate Freight Button
+    And Select Carrier Service
+    Then Validate Success Message Alert
+
+  Scenario: While There Is No Closed Outer Then Create Outer In Processing And See Temporary Label
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A112112111    |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer And Hub
+      | ScanRetailer | Hub           |
+      | 22           | SEKO OMNI LAX |
+    Then Click On Create Outer Button
+    Then Validate PopUp
+      | PopUp        |
+      | Create Outer |
+    And Select Hub And Retailer
+      | Hub           | Retailer                     |
+      | SEKO OMNI LAX | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Create Outer Button In Processing
+    Then Validate Outer Created Message
+    And Click On 'CLICK HERE' To Print Temporary Label
+
+  Scenario: Verify If Unavailable Retailer Enter Then Validate Retailer Not Found Error
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A112112111    |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer
+      | ScanRetailer |
+      | ABC          |
+    Then Validate Retailer Error
+      | RetailerError |
+      | error_msg     |

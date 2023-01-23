@@ -2,10 +2,13 @@ package com.techwith.ui.models;
 
 import com.techwith.ui.LocatorsPage.Processing_ORPS;
 import com.techwith.ui.models.customUtils.DropdownEnum;
+import com.techwith.ui.models.customUtils.elementCommonUtils;
+import org.openqa.selenium.By;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static com.techwith.ui.models.customUtils.elementCommonUtils.*;
+import static com.techwith.webdriver.WebDriverFactory.getDriver;
 
 @Component
 public class Processing_ORPS_Model {
@@ -27,7 +30,8 @@ public class Processing_ORPS_Model {
     }
     public void selectHub(String hub){
         DropDownBySelect((processing_orps.SelectHub), DropdownEnum.VISIBLE_TEXT() , hub);
-    }public void selectRetailer(String retailer){
+    }
+    public void selectRetailer(String retailer){
         DropDownBySelect((processing_orps.SelectRetailer), DropdownEnum.VISIBLE_TEXT() , retailer);
     }
     public void EnterMISC_1(String misc_1){
@@ -59,5 +63,16 @@ public class Processing_ORPS_Model {
     }
     public void ClickOnCancelButton(){
         ClickBy(processing_orps.ClickOnCancelButton);
+    }
+    public void SelectRetailerName(String retailer){
+        SendKeyBy(processing_orps.SelectRetailerName , retailer);
+    }
+    public boolean ValidateTheErrorMessage(String Search) {
+        Boolean value = getDriver().findElement(By.xpath(processing_orps.ValidateError + Search + processing_orps.PostValidateError)).isDisplayed();
+        return value;
+    }
+    public void ValidateErrorDisplay(String Heading) {
+        Boolean ErrorValidation = ValidateTheErrorMessage(Heading);
+        elementCommonUtils.assertBoolValues(Boolean.TRUE, ErrorValidation);
     }
 }

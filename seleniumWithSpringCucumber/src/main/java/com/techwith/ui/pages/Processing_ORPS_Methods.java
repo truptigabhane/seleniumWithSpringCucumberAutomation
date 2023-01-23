@@ -52,4 +52,7 @@ public class Processing_ORPS_Methods {
     public void ClickOnCancelButton(){
         processing_orps_model.ClickOnCancelButton();
     }
+    public void SelectRetailerName(String retailer){
+        processing_orps_model.SelectRetailerName(retailer);
+    }
 }

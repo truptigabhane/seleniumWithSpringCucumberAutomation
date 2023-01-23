@@ -720,6 +720,25 @@ Feature: Outer Admin User
     Then Validate Outer Created Message
     And Click On 'CLICK HERE' To Print Temporary Label
 
+  Scenario: Verify If Unavailable Retailer Enter Then Validate Retailer Not Found Error
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Processing Menu
+    And Click Processing Dropdown Menu
+    And Enter Consignment Number And Press Enter
+      | ConsignmentNo |
+      | A112112111    |
+    Then Validate Log Details PopUp
+      | PopUp                 |
+      | MANUAL RETURN PROCESS |
+    And Select ScanRetailer
+      | ScanRetailer |
+      | ABC          |
+    Then Validate Retailer Error
+      | RetailerError |
+      | error_msg     |
+
   ######################### Add Outers To MAWB ########################
 
   Scenario: Validate Add Outers To MAWB Homepage and URL

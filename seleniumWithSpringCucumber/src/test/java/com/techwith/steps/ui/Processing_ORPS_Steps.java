@@ -1,6 +1,7 @@
 package com.techwith.steps.ui;
 
 import com.techwith.ui.LocatorsPage.Processing_ORPS;
+import com.techwith.ui.models.Processing_ORPS_Model;
 import com.techwith.ui.models.customUtils.elementCommonUtils;
 import com.techwith.ui.pages.Processing_ORPS_Methods;
 import io.cucumber.datatable.DataTable;
@@ -22,6 +23,8 @@ public class Processing_ORPS_Steps {
     public Processing_ORPS_Methods processing_orps_methods;
     @Autowired
     public Processing_ORPS processing_orps;
+    @Autowired
+    public Processing_ORPS_Model processing_orps_model;
 
     @Given("Enter Consignment Number And Press Enter")
     public void enterConsignmentNumberAndPressEnter(DataTable dataTable) throws InterruptedException {
@@ -42,6 +45,17 @@ public class Processing_ORPS_Steps {
             String hub = mapData.get("Hub");
             processing_orps_methods.selectScanRetailerFromTheDropDown(scanRetailer);
             processing_orps_methods.selectHubFromTheDropDown(hub);
+
+            Thread.sleep(1000);
+        }
+    }
+    @And("Select ScanRetailer")
+    public void selectScanRetailer(DataTable dataTable) throws InterruptedException {
+        processing_orps_methods.clickOnScanRetailerDropDown("");
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String scanRetailer = mapData.get("ScanRetailer");
+            processing_orps_methods.SelectRetailerName(scanRetailer);
 
             Thread.sleep(1000);
         }
@@ -123,5 +137,13 @@ public class Processing_ORPS_Steps {
     public void clickOnCLICKHEREToPrintTemporaryLabel() throws InterruptedException {
         processing_orps_methods.ClickOnCLICKHEREToPrintTemporaryLabel();
         Thread.sleep(3000);
+    }
+    @Then("Validate Retailer Error")
+    public void validateRetailerError(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String retailer = mapData.get("RetailerError");
+            processing_orps_model.ValidateErrorDisplay(retailer);
+        }
     }
 }

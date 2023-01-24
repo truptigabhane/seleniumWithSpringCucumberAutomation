@@ -113,12 +113,14 @@ public class CreateOuterConsignment_Methods {
 //        ClickBy(createOuterConsignment.EnterRetailer);
         ClickBy(createOuterConsignment.EnterRetailer);
         createOuterConsignment_model.EnterRetailer(Retailer);
-        getDriver().findElement(createOuterConsignment.EnterRetailer);
-//        getDriver().findElement(By.xpath("//input[@role='textbox']")).sendKeys(Keys.ENTER);
+        getDriver().findElement(By.xpath("//input[@role='textbox']")).sendKeys(Keys.ENTER);
     }
     public void FillAddOutersDetails( String hub , String retailer ) {
         SelectEnterHub(hub);
 //        EnterRetailer(retailer);
+    }
+    public void FillDetails( String retailer ) {
+        EnterRetailer(retailer);
     }
     public void FillAddMAWBDeatils( String weight , String transitMode , String originCountry , String originPort , String originAgent , String destinationCountry , String destinationPort , String destinationAgent , String vesselNumber , String mawb_1 , String mawb_2 ) {
         createOuterConsignment_model.enterWeight(weight);

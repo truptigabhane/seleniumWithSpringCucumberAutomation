@@ -708,3 +708,165 @@ Feature: Outer Hub User
     Then Validate Retailer Error
       | RetailerError |
       | error_msg     |
+
+    ######################## Add Outers To MAWB ########################
+
+  Scenario: Validate Add Outers To MAWB Homepage and URL
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Validate Page URL
+      | URL                                         |
+      | https://stage.omnirps.com/consolidate_outer |
+    Then Validate Log Details PopUp
+      | PopUp              |
+      | ADD OUTERS TO MAWB |
+
+  Scenario: Search And Validate The Retailer Without Entering Search Details
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Click On Search Btn
+    Then Validate Searched Detail
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+
+  Scenario: Search And Validate The Retailer After Selecting Retailer
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Validate Searched Detail
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+
+  Scenario: Verify Popup While Export Without Selecting Retailer And Close Popup
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    And Click On Export Btn
+    Then Validate PopUp Head
+      | PopUp        |
+      | Scan To Tick |
+    And Click On Close Btn
+
+  Scenario: Verify 'MAWB allocate and send' Popup After Export And Close It
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    And Select Item To Export
+    And Click On Export Btn
+    Then Validate Log Details PopUp
+      | PopUp                  |
+      | MAWB allocate and send |
+    And Click Close Btn
+
+  Scenario: Validate Mandatory Fields Of 'MAWB allocate and send' Popup
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    And Select Item To Export
+    And Click On Export Btn
+    Then Validate Log Details PopUp
+      | PopUp                  |
+      | MAWB allocate and send |
+    And Click Create MAWB Button
+    Then Check And Validate Mandatory Required Fields Error In Creating Create MAWB
+      | Weight       | TransitMode        | OriginCountry       | OriginPort       | OriginAgent       | DestinationCountry       | DestinationPort       | DestinationAgent       | VesselNumber        |
+      | Weight-error | transit_mode-error | OriginCountry-error | OriginPort-error | OriginAgent-error | DestinationCountry-error | DestinationPort-error | DestinationAgent-error | Vessel_Number-error |
+
+  Scenario: Create MAWB By Adding Data Fields
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Validate Searched Detail
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Select Item To Export
+    And Click On Export Btn
+    Then Validate Log Details PopUp
+      | PopUp                  |
+      | MAWB allocate and send |
+    Then Create MAWB By Adding Data Fields
+      | Weight | TransitMode | OriginCountry | OriginPort        | OriginAgent                   | DestinationCountry | DestinationPort   | DestinationAgent         | VesselNumber  | MAWB_1 | MAWB_2   |
+      | 45     | AIR         | UNITED STATES | LOS ANGELES > LAX | LOS ANGELES > LAX > LAX AGENT | UNITED STATES      | LOS ANGELES > LAX | LOS ANGELES > LAX > SEKO | 4440001111111 | 233    | 97492111 |
+    And Click Create MAWB Button
+
+  Scenario: Enter Outer Connote For Scan To Tick And Validate Selected Outer Connote Checkbox
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick           |
+      | 61290988336622099242 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622099174 |
+
+  Scenario: Enter Multiple Outer Connote For Scan To Tick And Validate Selected Outer Connotes Checkbox
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick           |
+      | 61290988336622109248 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622109248 |
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick  |
+      | 61290988336622099242 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622099242 |
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick           |
+      | 61290988336622109170 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622109170 |

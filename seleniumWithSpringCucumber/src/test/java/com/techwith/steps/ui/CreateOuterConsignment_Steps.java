@@ -392,4 +392,12 @@ public class CreateOuterConsignment_Steps {
             companiesManage_oReturns_model.ValidateChangeType(mawb);
         }
     }
+    @And("Fill Details And Search")
+    public void fillDetailsAndSearch(DataTable dataTable) {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String retailer = mapData.get("Retailer");
+            createOuterConsignment_methods.FillDetails(retailer);
+        }
+    }
 }

@@ -870,3 +870,126 @@ Feature: Outer Hub User
     Then Validate Outer Connote Checkbox
       | OuterConnote         |
       | 61290988336622109170 |
+
+  Scenario: Enter Outer Connote For 'Scan To Tick' Then Uncheck Selected Connote
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick     |
+      | 61290988336622 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote   |
+      | 61290988336622 |
+    And Uncheck Outer Connote Checkbox
+      | OuterConnote   |
+      | 61290988336622 |
+    Then Validate Scan To Tick Box Is Empty
+
+  Scenario: Enter Outer Connote For 'Scan To Tick' Then Validate 'Scan To Tick' Green Box
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick     |
+      | 61290988336622 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote   |
+      | 61290988336622 |
+    Then Validate Scan To Tick Box Is Empty
+    Then Validate Scan To Tick Green Box
+
+  Scenario: Enter Outer Connote For 'Scan To Tick' Then Export And Validate Readonly Units
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Add Outers To MAWB
+    And Fill Details And Search
+      | Retailer                     |
+      | SEKO DEMO-RETURN TO THE FOLD |
+    And Click On Search Btn
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick           |
+      | 61290988336622114778 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622114778 |
+      Then Enter Outer Connote For Scan To Tick
+        | ScanToTick           |
+        | 61290988336622109231 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622109231 |
+    Then Enter Outer Connote For Scan To Tick
+      | ScanToTick           |
+      | 61290988336622109224 |
+    Then Validate Outer Connote Checkbox
+      | OuterConnote         |
+      | 61290988336622109224 |
+    And Click On Export Btn
+    Then Validate Log Details PopUp
+      | PopUp                  |
+      | MAWB allocate and send |
+    Then Validate Readonly Units
+
+  #################### MAWB - Outer Consolidations #######################
+
+  Scenario: Validate "MAWB - Outer Consolidations" Homepage and URL
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click MAWB - Outer Consolidations
+    And Validate Page URL
+      | URL                                                |
+      | https://stage.omnirps.com/outer/mawb_export_report |
+    Then Validate The Page Heading
+      | Heading                     |
+      | MAWB - Outer Consolidations |
+
+  Scenario: Search "MAWB - Outer Consolidations" Details Without Filling Any Details.
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click MAWB - Outer Consolidations
+    And Validate Page URL
+      | URL                                                |
+      | https://stage.omnirps.com/outer/mawb_export_report |
+    Then Validate The Page Heading
+      | Heading                     |
+      | MAWB - Outer Consolidations |
+    And Click On Search Button To Search
+
+  Scenario: Search And Validate "MAWB - Outer Consolidations" Details
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click MAWB - Outer Consolidations
+    And Validate Page URL
+      | URL                                                |
+      | https://stage.omnirps.com/outer/mawb_export_report |
+    Then Validate The Page Heading
+      | Heading                     |
+      | MAWB - Outer Consolidations |
+    And Fill Outers Consolidations Details
+      | Search       | OriginFacility        | DestinationPort     | Retailer                     | SubRetailer |
+      | 134-78987587 | UNITED STATES-LAX-AIR | NEW ZEALAND-CHC-AIR | SEKO DEMO-RETURN TO THE FOLD | 1           |
+    And Click On Search Button To Search
+    Then Validate Searched Company Details In MAWB Outer Consolidations
+      | Origin            | DestinationMode | Mode | MAWB         |
+      | UNITED STATES-LAX | NEW ZEALAND-CHC | AIR  | 134-78987587 |

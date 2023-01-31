@@ -145,6 +145,118 @@ Feature: Outer Hub User
       | OuterId | OuterStatus | Hub           | OuterCannote         |
       | 222171  | Closed      | SEKO OMNI LAX | 61290988336622109347 |
 
+  Scenario: Search Close Outer Report And Click On 'Outer Review' And Then Validate URL And Page Heading
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer In Hub User
+      | Search | OuterStatus | Retailer                     | Reports       |
+      | 222171 | Closed      | SEKO DEMO-RETURN TO THE FOLD | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details In Hub
+      | OuterId | OuterStatus | Hub           |
+      | 222171  | Closed      | SEKO OMNI LAX |
+    And Click On Outer Review Icon
+    And Validate Page URL
+      | URL                                                 |
+      | https://stage.omnirps.com/outer/outer_review/222171 |
+    Then Validate The Page Heading
+      | Heading              |
+      | REVIEW OUTER HISTORY |
+
+  Scenario: Search Close Outer Report And Click On 'Download Outer Manifest'
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer In Hub User
+      | Search | OuterStatus | Retailer                     | Reports       |
+      | 222171 | Closed      | SEKO DEMO-RETURN TO THE FOLD | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details In Hub
+      | OuterId | OuterStatus | Hub           |
+      | 222171  | Closed      | SEKO OMNI LAX |
+    And Click On Download Outer Manifest Icon
+
+  Scenario: Search Close Outer Report And Click On 'Mark as Delivered' And Validate Popup
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer In Hub User
+      | Search | OuterStatus | Retailer                     | Reports       |
+      | 222183 | Closed      | SEKO DEMO-RETURN TO THE FOLD | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details In Hub
+      | OuterId | OuterStatus | Hub           |
+      | 222183  | Closed      | SEKO OMNI LAX |
+    And Click On Mark as Delivered Icon
+    Then Validate PopUp
+      | PopUp             |
+      | Mark as Delivered |
+
+  Scenario: Search Close Outer Report And Click On 'Mark as Delivered' And Cancel By Clicking On Cancel
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer In Hub User
+      | Search | OuterStatus | Retailer                     | Reports       |
+      | 222183 | Closed      | SEKO DEMO-RETURN TO THE FOLD | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details In Hub
+      | OuterId | OuterStatus | Hub           |
+      | 222183  | Closed      | SEKO OMNI LAX |
+    And Click On Mark as Delivered Icon
+    Then Validate PopUp
+      | PopUp             |
+      | Mark as Delivered |
+    And Click On Cancel Button In Outer Report
+
+  Scenario: Search Close Outer Report And Click On 'Mark as Delivered' And Close Popup By Clicking On 'X'
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer In Hub User
+      | Search | OuterStatus | Retailer                     | Reports       |
+      | 222180 | Closed      | SEKO DEMO-RETURN TO THE FOLD | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details In Hub
+      | OuterId | OuterStatus | Hub           |
+      | 222180  | Closed      | SEKO OMNI LAX |
+    And Click On Mark as Delivered Icon
+    Then Validate PopUp
+      | PopUp             |
+      | Mark as Delivered |
+    And Click On X Button In Outer Report
+
+  Scenario: Search Close Outer Report And Click On 'Mark as Delivered' And Click On Confirm To Set Outer as Delivered Successfully.
+    Given Enter EmailAddress And Password and Click On LogIn Btn In Hub User
+      | EmailID  | Password |
+      | lucky123 | lucky123 |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer In Hub User
+      | Search | OuterStatus | Retailer                     | Reports       |
+      | 222180 | Closed      | SEKO DEMO-RETURN TO THE FOLD | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details In Hub
+      | OuterId | OuterStatus | Hub           |
+      | 222180  | Closed      | SEKO OMNI LAX |
+    And Click On Mark as Delivered Icon
+    Then Validate PopUp
+      | PopUp             |
+      | Mark as Delivered |
+    And Click On Confirm Button In Outer Report
+    Then Validate Success Alert For Outers
+
   #################### Create Outer Consignment ######################
 
   Scenario: Validate Create Outer Consignment Homepage and URL

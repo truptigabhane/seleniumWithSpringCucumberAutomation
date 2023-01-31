@@ -7,6 +7,7 @@ import com.techwith.ui.pages.OuterReport_ORPS_Methods;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -35,9 +36,38 @@ public class OuterReport_ORPS_Steps {
             outerReport_orps_methods.FillSearchDetails(search , outerStatus , retailer , hub , reports);
         }
     }
-    @Then("Click On Search Button In Outer Reports")
+    @And("Click On Search Button In Outer Reports")
     public void clickOnSearchButtonInOuterReports() {
         outerReport_orps_methods.ClickSearchBtn();
+    }
+    @And("Click On Cancel Button In Outer Report")
+    public void clickOnCancelButtonInOuterReport() {
+        outerReport_orps_methods.ClickOnCancelButtonInOuterReport();
+    }
+    @And("Click On X Button In Outer Report")
+    public void clickOnXButtonInOuterReport() {
+        outerReport_orps_methods.ClickOnXButtonInOuterReport();
+    }
+    @And("Click On Confirm Button In Outer Report")
+    public void clickOnConfirmButtonInOuterReport() {
+        outerReport_orps_methods.ClickOnConfirmButtonInOuterReport();
+    }
+    @Then("Validate Success Alert For Outers")
+    public void validateCreateANewOuterMessage() {
+        getDriver().findElement(By.xpath("//div[@id='outer_msg']")).isDisplayed();
+    }
+    @And("Click On Outer Review Icon")
+    public void clickOnOuterReviewIcon() {
+        outerReport_orps_methods.ClickOnOuterReviewIcon();
+    }
+    @And("Click On Download Outer Manifest Icon")
+    public void clickOnDownloadOuterManifestIcon() {
+        outerReport_orps_methods.ClickOnDownloadOuterManifestIcon();
+    }
+    @And("Click On Mark as Delivered Icon")
+    public void clickOnMarkAsDeliveredIcon() throws InterruptedException {
+        outerReport_orps_methods.ClickOnMarkAsDeliveredIcon();
+        Thread.sleep(2000);
     }
     @Then("Validate Searched Outer Details")
     public void validateSearchedOuterDetails(DataTable dataTable) {
@@ -52,7 +82,7 @@ public class OuterReport_ORPS_Steps {
         }
     }
     @Then("Validate Close Outer Details")
-    public void validateCloseOuterDetails(DataTable dataTable) {
+    public void validateCloseOuterDetails(DataTable dataTable) throws InterruptedException {
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
         for (Map<String, String> mapData : data) {
             String outerId = mapData.get("OuterId");
@@ -63,6 +93,20 @@ public class OuterReport_ORPS_Steps {
             companiesManage_oReturns_model.ValidateChangeType(outerId);
             companiesManage_oReturns_model.ValidateChangeType(outerStatus);
             companiesManage_oReturns_model.ValidateChangeType(hub);
+            Thread.sleep(2000);
+        }
+    }
+    @Then("Validate Close Outer Details In Hub")
+    public void validateCloseOuterDetailsInHub(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> mapData : data) {
+            String outerId = mapData.get("OuterId");
+            String outerStatus = mapData.get("OuterStatus");
+            String hub = mapData.get("Hub");
+            companiesManage_oReturns_model.ValidateChangeType(outerId);
+            companiesManage_oReturns_model.ValidateChangeType(outerStatus);
+            companiesManage_oReturns_model.ValidateChangeType(hub);
+            Thread.sleep(2000);
         }
     }
     @And("Click Create Outer Consignment Dropdown Menu")

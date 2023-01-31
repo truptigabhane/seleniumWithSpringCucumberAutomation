@@ -12,6 +12,7 @@ public class OuterReport_ORPS {
     public By SelectReports = By.xpath("(//span[contains(@role,'combobox')])[4]");
     public By EnterSearch = By.xpath("//input[@id='search_key']");
     public By ClickSearchBtn = By.xpath("//button[@onclick='search_outer_reports();']");
+    public By ClickOnCancelButtonInOuterReport = By.xpath("(//button[normalize-space()='CANCEL'])[1]");
     public By ClickCreateOuterConsignmentDropdownMenu = By.xpath("//a[normalize-space()='Create Outer Consignment']");
     public By ClickOnSenderResetButton = By.xpath("//button[@id='btnResetSender']");
     public By ClickOnReceiverResetButton = By.xpath("//button[@id='btnResetReceiver']");
@@ -37,4 +38,9 @@ public class OuterReport_ORPS {
     public By EnterReceiverEmail = By.xpath("//input[@id='ReceiverEmail']");
     public By EnterReceiverDeliveryInstructions = By.xpath("//input[@id='DeliveryInstructions']");
     public By ClickProcessingDropdownMenu = By.xpath("//a[@href='https://stage.omnirps.com/return_receipt/processing_cons']");
+    public By ClickOnOuterReviewIcon = By.xpath("(//a[@title='Outer Review'])[1]");
+    public By ClickOnDownloadOuterManifestIcon = By.xpath("(//a[@id='outer_excel_review'])[1]");
+    public By ClickOnMarkAsDeliveredIcon = By.xpath("(//i[@class='fa fa-check'])[1]");
+    public By ClickOnXButtonInOuterReport = By.xpath("//button[normalize-space()='×']");
+    public By ClickOnConfirmButtonInOuterReport = By.xpath("//button[@id='outerdelivered']");
 }

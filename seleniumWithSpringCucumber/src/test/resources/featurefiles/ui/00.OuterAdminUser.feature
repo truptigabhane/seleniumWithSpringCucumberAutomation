@@ -175,7 +175,120 @@ Feature: Outer Admin User
       | OuterId | OuterStatus | Hub           | OuterCannote         |
       | 222119  | Closed      | SEKO OMNI LAX | 61290988336622103734 |
 
-  #################### Create Outer Consignment ######################
+  Scenario: Search Close Outer Report And Click On 'Outer Review' And Then Validate URL And Page Heading
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer
+      | Search | OuterStatus | Retailer                     | Hub           | Reports       |
+      | 222119 | Closed      | SEKO DEMO-RETURN TO THE FOLD | SEKO OMNI LAX | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details
+      | OuterId | OuterStatus | Hub           | OuterCannote         |
+      | 222119  | Closed      | SEKO OMNI LAX | 61290988336622103734 |
+    And Click On Outer Review Icon
+    And Validate Page URL
+      | URL                                                 |
+      | https://stage.omnirps.com/outer/outer_review/222119 |
+    Then Validate The Page Heading
+      | Heading              |
+      | REVIEW OUTER HISTORY |
+
+  Scenario: Search Close Outer Report And Click On 'Download Outer Manifest'
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer
+      | Search | OuterStatus | Retailer                     | Hub           | Reports       |
+      | 222195 | Closed      | SEKO DEMO-RETURN TO THE FOLD | SEKO OMNI LAX | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details
+      | OuterId | OuterStatus | Hub           | OuterCannote       |
+      | 222195  | Closed      | SEKO OMNI LAX | 935058400CFX125128 |
+    And Click On Download Outer Manifest Icon
+
+  Scenario: Search Close Outer Report And Click On 'Mark as Delivered' And Validate Popup
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer
+      | Search | OuterStatus | Retailer                     | Hub           | Reports       |
+      | 222181 | Closed      | SEKO DEMO-RETURN TO THE FOLD | SEKO OMNI LAX | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details
+      | OuterId | OuterStatus | Hub           | OuterCannote         |
+      | 222181  | Closed      | SEKO OMNI LAX | 61290988336622114778 |
+    And Click On Mark as Delivered Icon
+    Then Validate PopUp
+      | PopUp             |
+      | Mark as Delivered |
+
+  Scenario: Search Close Outer Report And Click On 'Mark as Delivered' And Cancel By Clicking On Cancel
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer
+      | Search | OuterStatus | Retailer                     | Hub           | Reports       |
+      | 222181 | Closed      | SEKO DEMO-RETURN TO THE FOLD | SEKO OMNI LAX | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details
+      | OuterId | OuterStatus | Hub           | OuterCannote         |
+      | 222181  | Closed      | SEKO OMNI LAX | 61290988336622114778 |
+    And Click On Mark as Delivered Icon
+    Then Validate PopUp
+      | PopUp             |
+      | Mark as Delivered |
+    And Click On Cancel Button In Outer Report
+
+    Scenario: Search Close Outer Report And Click On 'Mark as Delivered' And Close Popup By Clicking On 'X'
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer
+      | Search | OuterStatus | Retailer                     | Hub           | Reports       |
+      | 222183 | Closed      | SEKO DEMO-RETURN TO THE FOLD | SEKO OMNI LAX | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details
+      | OuterId | OuterStatus | Hub           | OuterCannote         |
+      | 222183  | Closed      | SEKO OMNI LAX | 61290988336622113023 |
+    And Click On Mark as Delivered Icon
+    Then Validate PopUp
+      | PopUp             |
+      | Mark as Delivered |
+    And Click On X Button In Outer Report
+
+  Scenario: Search Close Outer Report And Click On 'Mark as Delivered' And Click On Confirm To Set Outer as Delivered Successfully.
+    Given Enter EmailAddress And Password and Click On LogIn Btn
+      | EmailID       | Password             |
+      | akash.trivedi | akash.trivedi@sstech |
+    When Click on Outers Menu
+    And Click Outer Reports Dropdown Menu
+    And Enter Search Details To Search Outer
+      | Search | OuterStatus | Retailer                     | Hub           | Reports       |
+      | 222180 | Closed      | SEKO DEMO-RETURN TO THE FOLD | SEKO OMNI LAX | Outer Reports |
+    And Click On Search Button In Outer Reports
+    Then Validate Close Outer Details
+      | OuterId | OuterStatus | Hub           | OuterCannote    |
+      | 222180  | Closed      | SEKO OMNI LAX | 147285586828527 |
+    And Click On Mark as Delivered Icon
+    Then Validate PopUp
+      | PopUp             |
+      | Mark as Delivered |
+    And Click On Confirm Button In Outer Report
+    Then Validate Success Alert For Outers
+
+
+  ################### Create Outer Consignment ######################
 
   Scenario: Validate Create Outer Consignment Homepage and URL
     Given Enter EmailAddress And Password and Click On LogIn Btn

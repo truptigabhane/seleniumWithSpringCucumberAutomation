@@ -17,6 +17,24 @@ public class OuterReport_ORPS_Model {
     public void ClickSearchBtn(){
         ClickBy(outerReport_orps.ClickSearchBtn);
     }
+    public void ClickOnCancelButtonInOuterReport(){
+        ClickBy(outerReport_orps.ClickOnCancelButtonInOuterReport);
+    }
+    public void ClickOnXButtonInOuterReport(){
+        ClickBy(outerReport_orps.ClickOnXButtonInOuterReport);
+    }
+    public void ClickOnConfirmButtonInOuterReport(){
+        ClickBy(outerReport_orps.ClickOnConfirmButtonInOuterReport);
+    }
+    public void ClickOnOuterReviewIcon(){
+        ClickBy(outerReport_orps.ClickOnOuterReviewIcon);
+    }
+    public void ClickOnDownloadOuterManifestIcon(){
+        ClickBy(outerReport_orps.ClickOnDownloadOuterManifestIcon);
+    }
+    public void ClickOnMarkAsDeliveredIcon(){
+        ClickBy(outerReport_orps.ClickOnMarkAsDeliveredIcon);
+    }
     public void ClickCreateOuterConsignmentDropdownMenu(){
         ClickBy(outerReport_orps.ClickCreateOuterConsignmentDropdownMenu);
     }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static com.techwith.ui.models.customUtils.elementCommonUtils.ClickBy;
+import static com.techwith.ui.models.customUtils.elementCommonUtils.elementFromString;
 import static com.techwith.webdriver.WebDriverFactory.getDriver;
 
 @Component
@@ -50,6 +51,24 @@ public class OuterReport_ORPS_Methods {
     }
     public void ClickSearchBtn(){
         outerReport_orps_model.ClickSearchBtn();
+    }
+    public void ClickOnCancelButtonInOuterReport(){
+        outerReport_orps_model.ClickOnCancelButtonInOuterReport();
+    }
+    public void ClickOnXButtonInOuterReport(){
+        outerReport_orps_model.ClickOnXButtonInOuterReport();
+    }
+    public void ClickOnConfirmButtonInOuterReport(){
+        outerReport_orps_model.ClickOnConfirmButtonInOuterReport();
+    }
+    public void ClickOnOuterReviewIcon(){
+        outerReport_orps_model.ClickOnOuterReviewIcon();
+    }
+    public void ClickOnDownloadOuterManifestIcon(){
+        outerReport_orps_model.ClickOnDownloadOuterManifestIcon();
+    }
+    public void ClickOnMarkAsDeliveredIcon(){
+        outerReport_orps_model.ClickOnMarkAsDeliveredIcon();
     }
     public void ClickCreateOuterConsignmentDropdownMenu(){
         outerReport_orps_model.ClickCreateOuterConsignmentDropdownMenu();
